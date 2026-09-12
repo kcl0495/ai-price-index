@@ -1,0 +1,99 @@
+{
+  "_comment": "Vendor pricing pages are a SECONDARY signal (change detection only). Primary structured pricing comes from the OpenRouter public API. The 'models' list below is a curation hint, not a price source.",
+  "seeded_on": "2026-09-12",
+  "currency": "USD",
+  "unit": "per 1M tokens",
+  "vendors": {
+    "anthropic": {
+      "name": "Anthropic",
+      "pricing_url": "https://www.anthropic.com/pricing",
+      "docs_url": "https://docs.anthropic.com/en/docs/about-claude/models"
+    },
+    "google": {
+      "name": "Google",
+      "pricing_url": "https://ai.google.dev/pricing",
+      "docs_url": "https://ai.google.dev/gemini-api/docs/models"
+    },
+    "mistral": {
+      "name": "Mistral",
+      "pricing_url": "https://mistral.ai/pricing",
+      "docs_url": "https://docs.mistral.ai/getting-started/models/"
+    },
+    "deepseek": {
+      "name": "DeepSeek",
+      "pricing_url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "docs_url": "https://api-docs.deepseek.com/"
+    },
+    "xai": {
+      "name": "xAI",
+      "pricing_url": "https://docs.x.ai/docs/models",
+      "docs_url": "https://docs.x.ai/"
+    }
+  },
+  "models": [
+    {
+      "id": "claude-opus-5",
+      "vendor": "anthropic",
+      "name": "Claude Opus 5",
+      "tier": "frontier"
+    },
+    {
+      "id": "claude-sonnet-5",
+      "vendor": "anthropic",
+      "name": "Claude Sonnet 5",
+      "tier": "balanced"
+    },
+    {
+      "id": "claude-haiku-4-5",
+      "vendor": "anthropic",
+      "name": "Claude Haiku 4.5",
+      "tier": "fast"
+    },
+    {
+      "id": "gpt-5",
+      "vendor": "openai",
+      "name": "GPT-5",
+      "tier": "frontier"
+    },
+    {
+      "id": "gpt-5-mini",
+      "vendor": "openai",
+      "name": "GPT-5 mini",
+      "tier": "fast"
+    },
+    {
+      "id": "gemini-3-pro",
+      "vendor": "google",
+      "name": "Gemini 3 Pro",
+      "tier": "frontier"
+    },
+    {
+      "id": "gemini-3-flash",
+      "vendor": "google",
+      "name": "Gemini 3 Flash",
+      "tier": "fast"
+    },
+    {
+      "id": "deepseek-v3",
+      "vendor": "deepseek",
+      "name": "DeepSeek V3",
+      "tier": "value"
+    },
+    {
+      "id": "mistral-large",
+      "vendor": "mistral",
+      "name": "Mistral Large",
+      "tier": "balanced"
+    },
+    {
+      "id": "grok-4",
+      "vendor": "xai",
+      "name": "Grok 4",
+      "tier": "frontier"
+    }
+  ],
+  "_excluded_vendor_pages": {
+    "openai": "403 to crawlers; respected",
+    "meta": "JS-only shell, nothing to fingerprint"
+  }
+}

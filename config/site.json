@@ -1,0 +1,5 @@
+{
+  "site_url": "https://CHANGE-ME.github.io",
+  "base_path": "",
+  "_note": "If you publish to a GitHub Pages PROJECT site (username.github.io/reponame), set base_path to \"/reponame\" and site_url to \"https://username.github.io\". If you publish to a USER site (a repo literally named username.github.io) or a custom domain, leave base_path empty."
+}
