@@ -251,7 +251,8 @@ def page(title, desc, body, canonical, extra_js=""):
 <footer><div class="wrap">
   Independent daily price tracking for large language model APIs.
   Data collected once per day from public sources &middot;
-  <a href="/api/">free download</a> &middot; <a href="/about.html">methodology</a>.
+  <a href="/api/">free download</a> &middot; <a href="/about.html">methodology</a> &middot;
+  data released under <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="license noopener">CC0&nbsp;1.0</a>.
   <br>Not affiliated with any model vendor. Prices are informational; always confirm
   against the vendor&rsquo;s own pricing page before relying on them.
 </div></footer>
@@ -561,9 +562,12 @@ genuine $0 list price.</li>
 this index is wrong. Historical snapshots are never edited &mdash; a correction is
 applied going forward and noted in the change log, so the record stays honest.</p>
 
-<h2>Reuse</h2>
-<p>The full dataset is <a href="/api/">free to download</a> and free to use, including
-commercially. Attribution with a link back is appreciated but not required.</p>
+<h2>Licence and reuse</h2>
+<p>The dataset is released into the public domain under
+<a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="license noopener">CC0&nbsp;1.0</a>.
+Copy it, republish it, build a product on it, charge for that product &mdash; no permission
+needed and no attribution required. A link back is appreciated, never demanded.</p>
+<p>The collection and site-generation code is separately available under the MIT licence.</p>
 </div>""" % (esc(latest["date"] if nsnap <= 1 else sorted(p.stem for p in SNAPDIR.glob("*.json"))[0]),
              nsnap, "" if nsnap == 1 else "s")
     return page("Methodology — AI Model Price Index",
@@ -588,10 +592,12 @@ including commercially.</p>
 <p><code>curl %s/api/latest.json</code></p>
 <p>Each model carries input and output price per 1M tokens, context length, modality,
 and a deprecation date where the provider has announced one. Prices are USD.</p>
-<h2>Terms</h2>
-<p>Free to use with no restrictions. A link back is appreciated. The data is provided
-as-is &mdash; see the <a href="/about.html">known limits</a> before depending on it for
-billing decisions.</p>
+<h2>Licence</h2>
+<p>Public domain under
+<a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="license noopener">CC0&nbsp;1.0</a>
+&mdash; commercial use included, no attribution required, no rate limit, no key.</p>
+<p>Provided as-is. Read the <a href="/about.html">known limits</a> before depending on it
+for a billing decision.</p>
 </div>""" % (latest["model_count"], len(changes), esc(site_url))
     return page("Free LLM pricing dataset — JSON and CSV download",
                 "Download the full LLM API pricing dataset as JSON or CSV. "

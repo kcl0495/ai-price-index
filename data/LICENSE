@@ -1,0 +1,25 @@
+CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+
+The price data in this directory, and the dataset published from it at
+/api/latest.json, /api/changes.json and /api/prices.csv, is dedicated to the
+public domain.
+
+To the extent possible under law, the maintainers of AI Price Index have
+waived all copyright and related or neighbouring rights to this dataset.
+
+You may copy, modify, distribute and use the data, including for commercial
+purposes, all without asking permission and without attribution.
+
+Full legal text:
+https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Summary:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+A link back is genuinely appreciated but is NOT required.
+
+---
+
+No warranty. The data is provided as-is. Prices are collected once per day
+from public sources and may be wrong, stale, or incomplete. Always confirm
+against the vendor's own pricing page before making a billing decision.
