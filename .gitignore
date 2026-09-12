@@ -2,3 +2,7 @@ site/
 __pycache__/
 *.pyc
 .DS_Store
+
+# 私人文件：只留本機，唔好推上公開 repo
+STRATEGY.md
+SETUP.md
