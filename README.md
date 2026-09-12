@@ -32,6 +32,14 @@ python engine/build_site.py   # 生成靜態站到 site/
 
 開 `site/index.html` 睇成果。
 
+> ⚠️ **每日機械人會 commit 數據上 GitHub**，所以你本機改嘢之前記得先：
+>
+> ```bash
+> git pull --rebase origin main
+> ```
+>
+> 唔 pull 就 push 會被 reject（`non-fast-forward`）。
+
 ---
 
 ## 結構
