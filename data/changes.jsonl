@@ -24,3 +24,24 @@
 {"date": "2026-09-13", "prev_date": "2026-09-12", "type": "price_changed", "model": "~z-ai/glm-latest", "name": "Z.ai: GLM Latest", "field": "in", "from": 0.8727, "to": 0.936, "pct": 7.25}
 {"date": "2026-09-13", "prev_date": "2026-09-12", "type": "price_changed", "model": "~z-ai/glm-latest", "name": "Z.ai: GLM Latest", "field": "out", "from": 3.36, "to": 3.168, "pct": -5.71}
 {"date": "2026-09-13", "prev_date": "2026-09-12", "type": "pricing_page_changed", "vendor": "xai", "url": "https://docs.x.ai/docs/models", "len_delta": 0}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "deepseek/deepseek-v4-flash", "name": "DeepSeek: DeepSeek V4 Flash 0423", "field": "in", "from": 0.04984, "to": 0.088606, "pct": 77.78}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "deepseek/deepseek-v4-flash", "name": "DeepSeek: DeepSeek V4 Flash 0423", "field": "out", "from": 0.09968, "to": 0.177212, "pct": 77.78}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "deepseek/deepseek-v4-flash-0731", "name": "DeepSeek: DeepSeek V4 Flash 0731", "field": "in", "from": 0.04, "to": 0.06, "pct": 50.0}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "deepseek/deepseek-v4-flash-0731", "name": "DeepSeek: DeepSeek V4 Flash 0731", "field": "out", "from": 0.08, "to": 0.12, "pct": 50.0}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "deepseek/deepseek-v4-pro-0813", "name": "DeepSeek: DeepSeek V4 Pro 0813", "field": "in", "from": 0.57816, "to": 0.9834, "pct": 70.09}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "deepseek/deepseek-v4-pro-0813", "name": "DeepSeek: DeepSeek V4 Pro 0813", "field": "out", "from": 1.73448, "to": 2.9502, "pct": 70.09}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "deepseek/deepseek-v4.1-flash", "name": "DeepSeek: DeepSeek V4.1 Flash", "field": "in", "from": 0.15, "to": 0.3, "pct": 100.0}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "deepseek/deepseek-v4.1-flash", "name": "DeepSeek: DeepSeek V4.1 Flash", "field": "out", "from": 0.6, "to": 1.2, "pct": 100.0}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "nvidia/nemotron-3-ultra-550b-a55b", "name": "NVIDIA: Nemotron 3 Ultra", "field": "in", "from": 0.625, "to": 0.6, "pct": -4.0}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "nvidia/nemotron-3-ultra-550b-a55b", "name": "NVIDIA: Nemotron 3 Ultra", "field": "out", "from": 3.125, "to": 2.4, "pct": -23.2}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "qwen/qwen3-14b", "name": "Qwen: Qwen3 14B", "field": "in", "from": 0.2275, "to": 0.12, "pct": -47.25}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "qwen/qwen3-14b", "name": "Qwen: Qwen3 14B", "field": "out", "from": 0.91, "to": 0.24, "pct": -73.63}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "z-ai/glm-5.2", "name": "Z.ai: GLM 5.2", "field": "in", "from": 0.6, "to": 0.6832, "pct": 13.87}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "z-ai/glm-5.2", "name": "Z.ai: GLM 5.2", "field": "out", "from": 2.0, "to": 2.1472, "pct": 7.36}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "z-ai/glm-5.3", "name": "Z.ai: GLM 5.3", "field": "in", "from": 1.092, "to": 1.4, "pct": 28.21}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "z-ai/glm-5.3", "name": "Z.ai: GLM 5.3", "field": "out", "from": 3.432, "to": 4.4, "pct": 28.21}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "~moonshotai/kimi-latest", "name": "MoonshotAI: Kimi Latest", "field": "in", "from": 2.1, "to": 2.025, "pct": -3.57}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "~moonshotai/kimi-latest", "name": "MoonshotAI: Kimi Latest", "field": "out", "from": 10.95, "to": 11.34, "pct": 3.56}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "~z-ai/glm-latest", "name": "Z.ai: GLM Latest", "field": "in", "from": 0.936, "to": 0.92, "pct": -1.71}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "price_changed", "model": "~z-ai/glm-latest", "name": "Z.ai: GLM Latest", "field": "out", "from": 3.168, "to": 3.1372, "pct": -0.97}
+{"date": "2026-09-14", "prev_date": "2026-09-13", "type": "pricing_page_changed", "vendor": "xai", "url": "https://docs.x.ai/docs/models", "len_delta": -12}
