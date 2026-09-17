@@ -87,3 +87,22 @@
 {"date": "2026-09-16", "prev_date": "2026-09-15", "type": "pricing_page_changed", "vendor": "google", "url": "https://ai.google.dev/pricing", "len_delta": 142}
 {"date": "2026-09-16", "prev_date": "2026-09-15", "type": "pricing_page_changed", "vendor": "mistral", "url": "https://mistral.ai/pricing", "len_delta": 20}
 {"date": "2026-09-16", "prev_date": "2026-09-15", "type": "pricing_page_changed", "vendor": "xai", "url": "https://docs.x.ai/docs/models", "len_delta": 46}
+{"date": "2026-09-17", "type": "model_added", "model": "stealth/union-alpha", "name": "Union Alpha", "in": 0.0, "out": 0.0}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "price_changed", "model": "deepseek/deepseek-v4-pro-0813", "name": "DeepSeek: DeepSeek V4 Pro 0813", "field": "in", "from": 0.9834, "to": 1.32, "pct": 34.23}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "price_changed", "model": "deepseek/deepseek-v4-pro-0813", "name": "DeepSeek: DeepSeek V4 Pro 0813", "field": "out", "from": 2.9502, "to": 3.96, "pct": 34.23}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "price_changed", "model": "gryphe/mythomax-l2-13b", "name": "MythoMax 13B", "field": "in", "from": 0.06, "to": 0.08, "pct": 33.33}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "price_changed", "model": "gryphe/mythomax-l2-13b", "name": "MythoMax 13B", "field": "out", "from": 0.06, "to": 0.11, "pct": 83.33}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "price_changed", "model": "moonshotai/kimi-k3", "name": "MoonshotAI: Kimi K3", "field": "in", "from": 2.648138, "to": 3.0, "pct": 13.29}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "price_changed", "model": "moonshotai/kimi-k3", "name": "MoonshotAI: Kimi K3", "field": "out", "from": 13.282724, "to": 15.0, "pct": 12.93}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "price_changed", "model": "nvidia/nemotron-3-nano-30b-a3b", "name": "NVIDIA: Nemotron 3 Nano 30B A3B", "field": "in", "from": 0.05, "to": 0.06, "pct": 20.0}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "price_changed", "model": "nvidia/nemotron-3-nano-30b-a3b", "name": "NVIDIA: Nemotron 3 Nano 30B A3B", "field": "out", "from": 0.2, "to": 0.24, "pct": 20.0}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "price_changed", "model": "z-ai/glm-5.3-flash", "name": "Z.ai: GLM 5.3 Flash", "field": "in", "from": 0.1, "to": 0.09, "pct": -10.0}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "price_changed", "model": "z-ai/glm-5.3-flash", "name": "Z.ai: GLM 5.3 Flash", "field": "out", "from": 0.3333, "to": 0.3, "pct": -9.99}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "price_changed", "model": "~deepseek/deepseek-pro-latest", "name": "DeepSeek: DeepSeek Pro Latest", "field": "in", "from": 0.96, "to": 0.7, "pct": -27.08}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "price_changed", "model": "~deepseek/deepseek-pro-latest", "name": "DeepSeek: DeepSeek Pro Latest", "field": "out", "from": 2.88, "to": 2.96, "pct": 2.78}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "price_changed", "model": "~deepseek/deepseek-v4-flash-latest", "name": "DeepSeek: DeepSeek V4 Flash Latest", "field": "in", "from": 0.04, "to": 0.03, "pct": -25.0}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "price_changed", "model": "~deepseek/deepseek-v4-flash-latest", "name": "DeepSeek: DeepSeek V4 Flash Latest", "field": "out", "from": 0.1, "to": 0.13, "pct": 30.0}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "price_changed", "model": "~moonshotai/kimi-latest", "name": "MoonshotAI: Kimi Latest", "field": "in", "from": 2.1, "to": 2.0, "pct": -4.76}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "price_changed", "model": "~moonshotai/kimi-latest", "name": "MoonshotAI: Kimi Latest", "field": "out", "from": 10.95, "to": 11.2, "pct": 2.28}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "pricing_page_changed", "vendor": "google", "url": "https://ai.google.dev/pricing", "len_delta": 0}
+{"date": "2026-09-17", "prev_date": "2026-09-16", "type": "pricing_page_changed", "vendor": "mistral", "url": "https://mistral.ai/pricing", "len_delta": 20}
