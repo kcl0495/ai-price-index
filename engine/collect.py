@@ -163,58 +163,115 @@ def collect_vendor_pages(cfg):
     return out
 
 
-def prev_snapshot(exclude):
-    files = sorted(p for p in SNAPDIR.glob("*.json") if p.name != exclude)
-    if not files:
-        return None
-    try:
-        return json.loads(files[-1].read_text(encoding="utf-8"))
-    except Exception:
-        return None
+STABLE_DAYS = 2
+# Vendors whose OpenRouter price IS the vendor's own list price. Everything
+# else (open-weight models served by many third-party hosts) has a market
+# price that drifts daily with provider routing; the first week of data showed
+# 140 "price changes" there, almost all oscillation, and zero movement across
+# the 152 first-party models. Logging that drift as price changes would make
+# the change log wrong in a way anyone could check against the vendor.
+FIRST_PARTY = ("anthropic/", "openai/", "google/gemini", "x-ai/")
 
 
-def diff(prev, cur, today):
-    """Emit one event per meaningful change. This feed is the product."""
+def is_alias(mid):
+    """'~vendor/model-latest' ids are floating pointers, not models."""
+    return mid.startswith("~") or "/~" in mid
+
+
+def is_first_party(mid):
+    return mid.startswith(FIRST_PARTY) and "gpt-oss" not in mid
+
+
+class Confirmer:
+    """A value only becomes the confirmed value once it has been observed on
+    STABLE_DAYS consecutive snapshots, which filters out A-B-A flapping."""
+
+    def __init__(self):
+        self.conf, self.pend = {}, {}
+
+    def seed(self, key, val):
+        self.conf.setdefault(key, val)
+
+    def observe(self, key, val, date):
+        if key not in self.conf:
+            self.conf[key] = val
+            return None
+        if val == self.conf[key]:
+            self.pend.pop(key, None)
+            return None
+        p = self.pend.get(key)
+        p = (val, p[1], p[2] + 1) if p and p[0] == val else (val, date, 1)
+        self.pend[key] = p
+        if p[2] < STABLE_DAYS:
+            return None
+        old = self.conf[key]
+        self.conf[key] = val
+        del self.pend[key]
+        return p[1], old, val   # dated to the day the change first appeared
+
+
+def derive_changes(snaps):
+    """Rebuild the whole change log from the immutable snapshots. Deriving it
+    rather than appending day by day means the rules can be improved later
+    without leaving old and new events disagreeing."""
+    by_date = {s["date"]: s for s in snaps}
+    c = Confirmer()
+    seen, last = set(), {}
     ev = []
-    pm = (prev or {}).get("models") or {}
-    cm = cur.get("models") or {}
-    pdate = (prev or {}).get("date")
+    for i, s in enumerate(snaps):
+        d, models = s["date"], s.get("models") or {}
+        cur = {m for m in models if not is_alias(m)}
 
-    for mid in sorted(set(cm) - set(pm)):
-        ev.append({"date": today, "type": "model_added", "model": mid,
-                   "name": cm[mid].get("name"),
-                   "in": cm[mid].get("in"), "out": cm[mid].get("out")})
-    for mid in sorted(set(pm) - set(cm)):
-        ev.append({"date": today, "type": "model_removed", "model": mid,
-                   "name": pm[mid].get("name")})
+        for mid in sorted(seen | cur):
+            key = (mid, "present")
+            if i > 0:
+                c.seed(key, False)          # appeared after day one
+            r = c.observe(key, mid in cur, d)
+            if r:
+                day = r[0]
+                if r[2]:
+                    m = by_date[day]["models"].get(mid) or models.get(mid) or {}
+                    ev.append({"date": day, "type": "model_added", "model": mid,
+                               "name": m.get("name"), "in": m.get("in"), "out": m.get("out")})
+                else:
+                    ev.append({"date": day, "type": "model_removed", "model": mid,
+                               "name": last.get(mid, {}).get("name")})
+        seen |= cur
 
-    for mid in sorted(set(pm) & set(cm)):
-        a, b = pm[mid], cm[mid]
-        for field in ("in", "out"):
-            x, y = a.get(field), b.get(field)
-            # Only report a real number moving to a different real number.
-            # None -> number is a data-coverage change, not a price change.
-            if x is None or y is None or x == y:
+        for mid in cur:
+            m = models[mid]
+            last[mid] = m
+            r = c.observe((mid, "expires"), m.get("expires"), d)
+            # Far-future dates (e.g. 2098-12-31) are placeholders, not retirements.
+            if r and r[1] is None and r[2] and int(str(r[2])[:4]) - int(d[:4]) <= 5:
+                ev.append({"date": r[0], "type": "deprecation_announced", "model": mid,
+                           "name": m.get("name"), "expires": r[2]})
+            if not is_first_party(mid):
                 continue
-            pct = round((y - x) / x * 100, 2) if x else None
-            ev.append({"date": today, "prev_date": pdate, "type": "price_changed",
-                       "model": mid, "name": b.get("name"), "field": field,
-                       "from": x, "to": y, "pct": pct})
-        if a.get("ctx") != b.get("ctx") and a.get("ctx") and b.get("ctx"):
-            ev.append({"date": today, "prev_date": pdate, "type": "context_changed",
-                       "model": mid, "name": b.get("name"),
-                       "from": a["ctx"], "to": b["ctx"]})
-        if not a.get("expires") and b.get("expires"):
-            ev.append({"date": today, "type": "deprecation_announced",
-                       "model": mid, "name": b.get("name"), "expires": b["expires"]})
+            for f in ("in", "out"):
+                if m.get(f) is None:
+                    continue
+                r = c.observe((mid, f), m[f], d)
+                if r:
+                    x, y = r[1], r[2]
+                    ev.append({"date": r[0], "type": "price_changed", "model": mid,
+                               "name": m.get("name"), "field": f, "from": x, "to": y,
+                               "pct": round((y - x) / x * 100, 2) if x else None})
+            if m.get("ctx"):
+                r = c.observe((mid, "ctx"), m["ctx"], d)
+                if r:
+                    ev.append({"date": r[0], "type": "context_changed", "model": mid,
+                               "name": m.get("name"), "from": r[1], "to": r[2]})
 
-    pv = (prev or {}).get("vendor_pages") or {}
-    for key, c in (cur.get("vendor_pages") or {}).items():
-        o = pv.get(key)
-        if o and o.get("ok") and c.get("ok") and o.get("fingerprint") != c.get("fingerprint"):
-            ev.append({"date": today, "prev_date": pdate, "type": "pricing_page_changed",
-                       "vendor": key, "url": c["url"],
-                       "len_delta": c.get("text_len", 0) - o.get("text_len", 0)})
+        for vk, vp in (s.get("vendor_pages") or {}).items():
+            if not vp.get("ok"):
+                continue
+            r = c.observe(("page", vk), vp.get("fingerprint"), d)
+            if r:
+                ev.append({"date": r[0], "type": "pricing_page_changed",
+                           "vendor": vk, "url": vp["url"]})
+
+    ev.sort(key=lambda e: (e["date"], e["type"], e.get("model") or e.get("vendor") or ""))
     return ev
 
 
@@ -245,22 +302,22 @@ def main():
 
     SNAPDIR.mkdir(parents=True, exist_ok=True)
     out = SNAPDIR / (today + ".json")
-    prev = prev_snapshot(out.name)
     out.write_text(json.dumps(snap, separators=(",", ":"), ensure_ascii=False), encoding="utf-8")
     print("[snapshot] %s (%d KB)" % (out.name, out.stat().st_size // 1024))
 
-    if prev:
-        ev = diff(prev, snap, today)
-        if ev:
-            with CHANGES.open("a", encoding="utf-8") as f:
-                for e in ev:
-                    f.write(json.dumps(e, ensure_ascii=False) + "\n")
-        by = {}
-        for e in ev:
-            by[e["type"]] = by.get(e["type"], 0) + 1
-        print("[changes] %d events vs %s: %s" % (len(ev), prev["date"], by or "none"))
-    else:
-        print("[changes] baseline established (no previous snapshot)")
+    snaps = []
+    for p in sorted(SNAPDIR.glob("*.json")):
+        try:
+            snaps.append(json.loads(p.read_text(encoding="utf-8")))
+        except Exception as e:
+            print("  ! unreadable snapshot %s: %s" % (p.name, e), file=sys.stderr)
+    ev = derive_changes(snaps)
+    CHANGES.write_text("".join(json.dumps(e, ensure_ascii=False) + "\n" for e in ev),
+                       encoding="utf-8")
+    by = {}
+    for e in ev:
+        by[e["type"]] = by.get(e["type"], 0) + 1
+    print("[changes] %d confirmed events across %d snapshots: %s" % (len(ev), len(snaps), by or "none"))
     return 0
 
 

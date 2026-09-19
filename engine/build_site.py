@@ -24,7 +24,17 @@ CHANGES = ROOT / "data" / "changes.jsonl"
 SITE = ROOT / "site"
 CONFIG = ROOT / "config" / "site.json"
 
-HISTORY_GATE = 7          # days of history that alone earn a model page
+HISTORY_GATE = 90         # days of history that alone earn a model page
+# A week-long gate unlocked ~290 near-identical pages on day eight -- rows of
+# the same price repeated. Length of history only makes a page unique once it
+# is genuinely long; before that, a page needs a reason to exist.
+
+
+def earns_page(mid, h, core, evented):
+    """The single rule for whether a model gets its own page. Used by both the
+    page writer and the index links, so they cannot disagree and link to 404s."""
+    return (not is_variant(mid)) and (
+        mid in core or mid in evented or len(h) >= HISTORY_GATE)
 CORE_VENDOR_PREFIXES = ("anthropic/", "openai/", "google/", "meta-llama/",
                         "mistralai/", "deepseek/", "x-ai/", "qwen/")
 CORE_LIMIT = 40
@@ -346,11 +356,12 @@ def build_index(latest, hist, changes, site_url):
 
     rows = []
     core = pick_core(models)
+    evented = {c.get("model") for c in changes if c.get("model")}
     for mid, m in sorted(priced.items(), key=lambda kv: kv[1]["in"]):
         h = [(d, i) for d, i, o, c in hist.get(mid, [])]
         spark = sparkline(h)
         # Must mirror the gate in main() exactly, or the index links to 404s.
-        has_page = (not is_variant(mid)) and (mid in core or len(hist.get(mid, [])) >= HISTORY_GATE)
+        has_page = earns_page(mid, hist.get(mid, []), core, evented)
         nm = esc(m.get("name") or mid)
         namecell = ('<a href="/models/%s.html">%s</a>' % (slug(mid), nm)) if has_page else nm
         rows.append(
@@ -433,7 +444,7 @@ def build_changes(changes, site_url):
     if not changes:
         body = """
 <h1>Price change log</h1>
-<p class="lede">Every pricing change we detect, with the date we detected it.</p>
+<p class="lede">Confirmed changes only, dated to the day they first appeared.</p>
 <div class="empty">Tracking started today. The first comparison runs tomorrow &mdash;
 this log fills in from the second daily snapshot onward.</div>"""
     else:
@@ -467,8 +478,10 @@ this log fills in from the second daily snapshot onward.</div>"""
             items.append('<li><span class="d">%s</span><span>%s</span></li>' % (esc(c.get("date")), txt))
         body = """
 <h1>Price change log</h1>
-<p class="lede">Every pricing change we detect, with the date we detected it.
-%d events recorded so far.</p>
+<p class="lede">Confirmed changes only, dated to the day they first appeared.
+%d events recorded so far. A change is logged once it has held for two consecutive
+daily snapshots, so short-lived flickers never appear here.
+<a href="/about.html#changes">What counts as a price change</a>.</p>
 <ul class="feed">%s</ul>""" % (len(changes), "".join(items))
     return page("LLM API price change log",
                 "A dated record of every LLM API price change, model launch, "
@@ -544,6 +557,17 @@ decline crawler traffic are excluded rather than worked around.</p>
 when a price moved, by how much, and which models quietly disappeared. That record can
 only be built by someone who started collecting and never stopped. It began on %s and
 now covers %d daily snapshot%s.</p>
+
+<h2 id="changes">What counts as a price change</h2>
+<p>Price changes are logged for models whose price is set by the vendor that makes
+them &mdash; Anthropic, OpenAI, Google Gemini and xAI. Open-weight models (DeepSeek, Qwen,
+Llama, GLM, Kimi and others) are served by many independent hosts, so their listed price
+is a market price that moves day to day as traffic is routed between providers. Those
+models show their current price in the index, but that daily drift is not reported as a
+price change, because the model's maker did not change anything.</p>
+<p>Every event &mdash; price change, new model, removal, pricing-page edit &mdash; must hold
+for two consecutive daily snapshots before it is logged. That costs a day of latency and
+removes almost all false alarms.</p>
 
 <h2>Limits worth knowing</h2>
 <ul>
@@ -638,6 +662,7 @@ def main():
 
     # --- model pages, gated ---
     core = pick_core(latest["models"])
+    evented = {c.get("model") for c in changes if c.get("model")}
     made = 0
     for mid, m in latest["models"].items():
         if m.get("in") is None:
@@ -645,7 +670,7 @@ def main():
         if is_variant(mid):
             continue
         h = hist.get(mid, [])
-        if mid not in core and len(h) < HISTORY_GATE:
+        if not earns_page(mid, h, core, evented):
             continue
         write_page(SITE / "models" / (slug(mid) + ".html"),
                    build_model_page(mid, m, h, site_url))
@@ -681,7 +706,7 @@ def main():
     (SITE / "robots.txt").write_text(
         "User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n" % site_url, encoding="utf-8")
 
-    print("[site] %d pages (%d model pages, gated at %d days history)" % (len(urls), made, HISTORY_GATE))
+    print("[site] %d pages (%d model pages: core, changed, or %d+ days history)" % (len(urls), made, HISTORY_GATE))
     print("[site] exports: latest.json, changes.json, prices.csv")
     print("[site] output -> %s" % SITE)
     return 0
