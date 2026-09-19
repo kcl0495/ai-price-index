@@ -16,12 +16,13 @@ opposite of the programmatic-SEO pattern that got penalised.
 
 stdlib only.
 """
-import json, pathlib, datetime, html, re, sys, collections
+import json, pathlib, datetime, html, re, sys, collections, shutil
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SNAPDIR = ROOT / "data" / "snapshots"
 CHANGES = ROOT / "data" / "changes.jsonl"
 SITE = ROOT / "site"
+STATIC = ROOT / "static"   # copied verbatim into the site (verification files etc.)
 CONFIG = ROOT / "config" / "site.json"
 
 HISTORY_GATE = 90         # days of history that alone earn a model page
@@ -652,6 +653,8 @@ def main():
     SITE.mkdir(exist_ok=True)
     (SITE / "models").mkdir(exist_ok=True)
     (SITE / "api").mkdir(exist_ok=True)
+    if STATIC.is_dir():
+        shutil.copytree(STATIC, SITE, dirs_exist_ok=True)
 
     urls = ["/", "/changes.html", "/about.html", "/api/"]
 
