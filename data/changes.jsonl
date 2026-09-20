@@ -13,3 +13,13 @@
 {"date": "2026-09-18", "type": "model_removed", "model": "mistralai/mistral-large-2512", "name": "Mistral: Mistral Large 3 2512"}
 {"date": "2026-09-18", "type": "pricing_page_changed", "vendor": "google", "url": "https://ai.google.dev/pricing"}
 {"date": "2026-09-18", "type": "pricing_page_changed", "vendor": "xai", "url": "https://docs.x.ai/docs/models"}
+{"date": "2026-09-19", "type": "deprecation_announced", "model": "google/gemini-2.5-flash", "name": "Google: Gemini 2.5 Flash", "expires": "2026-10-20"}
+{"date": "2026-09-19", "type": "deprecation_announced", "model": "google/gemini-2.5-flash-image", "name": "Google: Nano Banana (Gemini 2.5 Flash Image)", "expires": "2027-03-15"}
+{"date": "2026-09-19", "type": "deprecation_announced", "model": "google/gemini-2.5-flash-lite", "name": "Google: Gemini 2.5 Flash Lite", "expires": "2026-10-20"}
+{"date": "2026-09-19", "type": "deprecation_announced", "model": "google/gemini-2.5-flash:batch", "name": "Google: Gemini 2.5 Flash (batch)", "expires": "2026-10-20"}
+{"date": "2026-09-19", "type": "deprecation_announced", "model": "google/gemini-2.5-pro", "name": "Google: Gemini 2.5 Pro", "expires": "2026-10-20"}
+{"date": "2026-09-19", "type": "deprecation_announced", "model": "google/gemini-2.5-pro:batch", "name": "Google: Gemini 2.5 Pro (batch)", "expires": "2026-10-20"}
+{"date": "2026-09-19", "type": "model_added", "model": "prism-ml/ternary-bonsai-2-27b", "name": "PrismML: Ternary Bonsai 2 27B", "in": 0.075, "out": 0.5}
+{"date": "2026-09-19", "type": "model_added", "model": "z-ai/glm-5.3-flashx", "name": "Z.ai: GLM 5.3 FlashX", "in": 0.37, "out": 1.25}
+{"date": "2026-09-19", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
+{"date": "2026-09-19", "type": "pricing_page_changed", "vendor": "mistral", "url": "https://mistral.ai/pricing"}
