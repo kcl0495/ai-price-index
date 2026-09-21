@@ -23,3 +23,10 @@
 {"date": "2026-09-19", "type": "model_added", "model": "z-ai/glm-5.3-flashx", "name": "Z.ai: GLM 5.3 FlashX", "in": 0.37, "out": 1.25}
 {"date": "2026-09-19", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
 {"date": "2026-09-19", "type": "pricing_page_changed", "vendor": "mistral", "url": "https://mistral.ai/pricing"}
+{"date": "2026-09-20", "type": "deprecation_announced", "model": "baidu/ernie-4.5-vl-424b-a47b", "name": "Baidu: ERNIE 4.5 VL 424B A47B ", "expires": "2026-10-08"}
+{"date": "2026-09-20", "type": "deprecation_announced", "model": "deepseek/deepseek-r1-distill-llama-70b", "name": "DeepSeek: R1 Distill Llama 70B", "expires": "2026-09-28"}
+{"date": "2026-09-20", "type": "deprecation_announced", "model": "deepseek/deepseek-v3.1-terminus", "name": "DeepSeek: DeepSeek V3.1 Terminus", "expires": "2026-09-28"}
+{"date": "2026-09-20", "type": "deprecation_announced", "model": "deepseek/deepseek-v3.2", "name": "DeepSeek: DeepSeek V3.2", "expires": "2026-09-28"}
+{"date": "2026-09-20", "type": "deprecation_announced", "model": "deepseek/deepseek-v3.2-exp", "name": "DeepSeek: DeepSeek V3.2 Exp", "expires": "2026-09-28"}
+{"date": "2026-09-20", "type": "deprecation_announced", "model": "minimax/minimax-m2.1", "name": "MiniMax: MiniMax M2.1", "expires": "2026-10-08"}
+{"date": "2026-09-20", "type": "model_removed", "model": "deepseek/deepseek-v4-flash-0731:free", "name": "DeepSeek: DeepSeek V4 Flash 0731 (free)"}
