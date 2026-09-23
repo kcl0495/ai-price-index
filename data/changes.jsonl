@@ -30,3 +30,22 @@
 {"date": "2026-09-20", "type": "deprecation_announced", "model": "deepseek/deepseek-v3.2-exp", "name": "DeepSeek: DeepSeek V3.2 Exp", "expires": "2026-09-28"}
 {"date": "2026-09-20", "type": "deprecation_announced", "model": "minimax/minimax-m2.1", "name": "MiniMax: MiniMax M2.1", "expires": "2026-10-08"}
 {"date": "2026-09-20", "type": "model_removed", "model": "deepseek/deepseek-v4-flash-0731:free", "name": "DeepSeek: DeepSeek V4 Flash 0731 (free)"}
+{"date": "2026-09-22", "type": "context_changed", "model": "anthropic/claude-sonnet-4", "name": "Anthropic: Claude Sonnet 4", "from": 1000000, "to": 200000}
+{"date": "2026-09-22", "type": "deprecation_announced", "model": "bytedance-seed/seed-1.6", "name": "ByteDance Seed: Seed 1.6", "expires": "2026-11-11"}
+{"date": "2026-09-22", "type": "deprecation_announced", "model": "bytedance-seed/seed-1.6-flash", "name": "ByteDance Seed: Seed 1.6 Flash", "expires": "2026-11-11"}
+{"date": "2026-09-22", "type": "deprecation_announced", "model": "bytedance-seed/seed-2.0-code", "name": "ByteDance Seed: Seed-2.0-Code", "expires": "2026-11-11"}
+{"date": "2026-09-22", "type": "deprecation_announced", "model": "nex-agi/nex-n2.5-mini:free", "name": "Nex AGI: Nex-N2.5-Mini (free)", "expires": "2026-09-25"}
+{"date": "2026-09-22", "type": "deprecation_announced", "model": "nex-agi/nex-n2.5-pro:free", "name": "Nex AGI: Nex-N2.5-Pro (free)", "expires": "2026-09-25"}
+{"date": "2026-09-22", "type": "model_added", "model": "nex-agi/nex-n2.5-mini", "name": "Nex AGI: Nex-N2.5-Mini", "in": 0.025, "out": 0.1}
+{"date": "2026-09-22", "type": "model_added", "model": "nex-agi/nex-n2.5-pro", "name": "Nex AGI: Nex-N2.5-Pro", "in": 0.075, "out": 0.25}
+{"date": "2026-09-22", "type": "model_added", "model": "x-ai/grok-4.7", "name": "SpaceXAI: Grok 4.7", "in": 1.6, "out": 4.8}
+{"date": "2026-09-22", "type": "model_added", "model": "xiaomi/mimo-v2.6-flash", "name": "Xiaomi: MiMo-V2.6-Flash", "in": 0.14, "out": 0.28}
+{"date": "2026-09-22", "type": "model_added", "model": "xiaomi/mimo-v2.6-pro", "name": "Xiaomi: MiMo-V2.6-Pro", "in": 0.435, "out": 0.87}
+{"date": "2026-09-22", "type": "model_added", "model": "xiaomi/mimo-v2.6-pro-ultraspeed", "name": "Xiaomi: MiMo-V2.6-Pro-UltraSpeed", "in": 4.35, "out": 8.7}
+{"date": "2026-09-22", "type": "model_removed", "model": "anthropic/claude-opus-4", "name": "Anthropic: Claude Opus 4"}
+{"date": "2026-09-22", "type": "model_removed", "model": "minimax/minimax-m3:batch", "name": "MiniMax: MiniMax M3 (batch)"}
+{"date": "2026-09-22", "type": "model_removed", "model": "openai/gpt-oss-120b:batch", "name": "OpenAI: gpt-oss-120b (batch)"}
+{"date": "2026-09-22", "type": "model_removed", "model": "qwen/qwen3.5-9b:batch", "name": "Qwen: Qwen3.5-9B (batch)"}
+{"date": "2026-09-22", "type": "model_removed", "model": "qwen/qwen3.8-2.4t-a95b:batch", "name": "Qwen: Qwen3.8 2.4T A95B (batch)"}
+{"date": "2026-09-22", "type": "model_removed", "model": "thinkingmachines/inkling:batch", "name": "Thinking Machines: Inkling (batch)"}
+{"date": "2026-09-22", "type": "pricing_page_changed", "vendor": "xai", "url": "https://docs.x.ai/docs/models"}
