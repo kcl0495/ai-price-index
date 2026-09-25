@@ -69,3 +69,14 @@
 {"date": "2026-09-23", "type": "model_removed", "model": "kwaipilot/kat-coder-pro-v2", "name": "Kwaipilot: KAT-Coder-Pro V2"}
 {"date": "2026-09-23", "type": "model_removed", "model": "meta/muse-glimmer-30b:batch", "name": "Meta: Muse Glimmer 30B (batch)"}
 {"date": "2026-09-23", "type": "model_removed", "model": "z-ai/glm-5.2:batch", "name": "Z.ai: GLM 5.2 (batch)"}
+{"date": "2026-09-24", "type": "model_added", "model": "aion-labs/aion-3.5", "name": "AionLabs: Aion 3.5", "in": 3.0, "out": 6.0}
+{"date": "2026-09-24", "type": "model_added", "model": "aion-labs/aion-3.5-mini", "name": "AionLabs: Aion 3.5 Mini", "in": 0.7, "out": 1.4}
+{"date": "2026-09-24", "type": "model_added", "model": "fireworks/ember-1", "name": "Fireworks: Ember-1", "in": 3.0, "out": 15.0}
+{"date": "2026-09-24", "type": "model_added", "model": "openai/gpt-oss-120b:batch", "name": "OpenAI: gpt-oss-120b (batch)", "in": 0.0296, "out": 0.136}
+{"date": "2026-09-24", "type": "model_added", "model": "qwen/qwen3.8-max-prime", "name": "Qwen: Qwen3.8 Max Prime", "in": 4.0, "out": 12.0}
+{"date": "2026-09-24", "type": "model_added", "model": "stealth/space-bunny-alpha", "name": "Space Bunny Alpha", "in": 0.0, "out": 0.0}
+{"date": "2026-09-24", "type": "model_added", "model": "upstage/solar-mini4", "name": "Upstage: Solar Mini 4", "in": 0.05, "out": 0.2}
+{"date": "2026-09-24", "type": "model_added", "model": "z-ai/glm-5.3-prime", "name": "Z.ai: GLM 5.3 Prime", "in": 2.8, "out": 8.8}
+{"date": "2026-09-24", "type": "model_removed", "model": "inclusionai/ling-3.0-flash-vl:free", "name": "inclusionAI: Ling 3.0 Flash VL (free)"}
+{"date": "2026-09-24", "type": "model_removed", "model": "nex-agi/nex-n2.5-mini", "name": "Nex AGI: Nex-N2.5-Mini"}
+{"date": "2026-09-24", "type": "model_removed", "model": "nex-agi/nex-n2.5-pro", "name": "Nex AGI: Nex-N2.5-Pro"}
