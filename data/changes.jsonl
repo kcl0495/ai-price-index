@@ -80,3 +80,6 @@
 {"date": "2026-09-24", "type": "model_removed", "model": "inclusionai/ling-3.0-flash-vl:free", "name": "inclusionAI: Ling 3.0 Flash VL (free)"}
 {"date": "2026-09-24", "type": "model_removed", "model": "nex-agi/nex-n2.5-mini", "name": "Nex AGI: Nex-N2.5-Mini"}
 {"date": "2026-09-24", "type": "model_removed", "model": "nex-agi/nex-n2.5-pro", "name": "Nex AGI: Nex-N2.5-Pro"}
+{"date": "2026-09-25", "type": "model_added", "model": "mistralai/mistral-large-2512", "name": "Mistral: Mistral Large 3 2512", "in": 0.5, "out": 1.5}
+{"date": "2026-09-25", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
+{"date": "2026-09-25", "type": "pricing_page_changed", "vendor": "google", "url": "https://ai.google.dev/pricing"}
