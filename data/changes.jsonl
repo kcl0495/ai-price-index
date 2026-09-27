@@ -83,3 +83,23 @@
 {"date": "2026-09-25", "type": "model_added", "model": "mistralai/mistral-large-2512", "name": "Mistral: Mistral Large 3 2512", "in": 0.5, "out": 1.5}
 {"date": "2026-09-25", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
 {"date": "2026-09-25", "type": "pricing_page_changed", "vendor": "google", "url": "https://ai.google.dev/pricing"}
+{"date": "2026-09-26", "type": "deprecation_announced", "model": "qwen/qwen-plus-2025-07-28", "name": "Qwen: Qwen Plus 0728", "expires": "2026-10-09"}
+{"date": "2026-09-26", "type": "deprecation_announced", "model": "qwen/qwen3-235b-a22b", "name": "Qwen: Qwen3 235B A22B", "expires": "2026-10-09"}
+{"date": "2026-09-26", "type": "deprecation_announced", "model": "qwen/qwen3-235b-a22b-thinking-2507", "name": "Qwen: Qwen3 235B A22B Thinking 2507", "expires": "2026-10-09"}
+{"date": "2026-09-26", "type": "deprecation_announced", "model": "qwen/qwen3-30b-a3b-thinking-2507", "name": "Qwen: Qwen3 30B A3B Thinking 2507", "expires": "2026-10-09"}
+{"date": "2026-09-26", "type": "deprecation_announced", "model": "qwen/qwen3-8b", "name": "Qwen: Qwen3 8B", "expires": "2026-10-09"}
+{"date": "2026-09-26", "type": "deprecation_announced", "model": "qwen/qwen3-coder-plus", "name": "Qwen: Qwen3 Coder Plus", "expires": "2026-10-09"}
+{"date": "2026-09-26", "type": "deprecation_announced", "model": "qwen/qwen3-max", "name": "Qwen: Qwen3 Max", "expires": "2026-10-09"}
+{"date": "2026-09-26", "type": "deprecation_announced", "model": "qwen/qwen3-max-thinking", "name": "Qwen: Qwen3 Max Thinking", "expires": "2026-10-09"}
+{"date": "2026-09-26", "type": "deprecation_announced", "model": "qwen/qwen3-vl-235b-a22b-thinking", "name": "Qwen: Qwen3 VL 235B A22B Thinking", "expires": "2026-10-09"}
+{"date": "2026-09-26", "type": "deprecation_announced", "model": "qwen/qwen3-vl-30b-a3b-thinking", "name": "Qwen: Qwen3 VL 30B A3B Thinking", "expires": "2026-10-09"}
+{"date": "2026-09-26", "type": "deprecation_announced", "model": "qwen/qwen3-vl-32b-instruct", "name": "Qwen: Qwen3 VL 32B Instruct", "expires": "2026-10-09"}
+{"date": "2026-09-26", "type": "deprecation_announced", "model": "qwen/qwen3-vl-8b-instruct", "name": "Qwen: Qwen3 VL 8B Instruct", "expires": "2026-10-09"}
+{"date": "2026-09-26", "type": "deprecation_announced", "model": "qwen/qwen3-vl-8b-thinking", "name": "Qwen: Qwen3 VL 8B Thinking", "expires": "2026-10-09"}
+{"date": "2026-09-26", "type": "deprecation_announced", "model": "qwen/qwen3.6-max-preview", "name": "Qwen: Qwen3.6 Max Preview", "expires": "2026-10-09"}
+{"date": "2026-09-26", "type": "model_added", "model": "perceptron/perceptron-mk1.5", "name": "Perceptron: Perceptron Mk1.5", "in": 0.15, "out": 1.5}
+{"date": "2026-09-26", "type": "model_added", "model": "typesafe/jev-router", "name": "TypeSafe: Jev Router", "in": null, "out": null}
+{"date": "2026-09-26", "type": "model_removed", "model": "anthropic/claude-3-haiku", "name": "Anthropic: Claude 3 Haiku"}
+{"date": "2026-09-26", "type": "model_removed", "model": "nex-agi/nex-n2.5-mini:free", "name": "Nex AGI: Nex-N2.5-Mini (free)"}
+{"date": "2026-09-26", "type": "model_removed", "model": "nex-agi/nex-n2.5-pro:free", "name": "Nex AGI: Nex-N2.5-Pro (free)"}
+{"date": "2026-09-26", "type": "model_removed", "model": "z-ai/glm-5.2:free", "name": "Z.ai: GLM 5.2 (free)"}
