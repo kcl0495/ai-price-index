@@ -117,3 +117,5 @@
 {"date": "2026-09-29", "type": "pricing_page_changed", "vendor": "mistral", "url": "https://mistral.ai/pricing"}
 {"date": "2026-09-30", "type": "model_added", "model": "openai/gpt-6.1-sol", "name": "OpenAI: GPT-6.1 Sol", "in": 2.0, "out": 10.0}
 {"date": "2026-09-30", "type": "model_added", "model": "openai/gpt-6.1-sol-pro", "name": "OpenAI: GPT-6.1 Sol Pro", "in": 2.0, "out": 10.0}
+{"date": "2026-10-01", "type": "deprecation_announced", "model": "stealth/space-bunny-alpha", "name": "Space Bunny Alpha", "expires": "2026-10-05"}
+{"date": "2026-10-01", "type": "pricing_page_changed", "vendor": "google", "url": "https://ai.google.dev/pricing"}
