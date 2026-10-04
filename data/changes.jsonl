@@ -125,3 +125,10 @@
 {"date": "2026-10-02", "type": "model_added", "model": "apodex/apodex-1.1-mini:free", "name": "Apodex: Apodex 1.1 Mini (free)", "in": 0.0, "out": 0.0}
 {"date": "2026-10-02", "type": "model_added", "model": "unbiased/pareto-26.10-preview", "name": "Pareto 26.10 Preview", "in": 0.8, "out": 3.2}
 {"date": "2026-10-02", "type": "pricing_page_changed", "vendor": "xai", "url": "https://docs.x.ai/docs/models"}
+{"date": "2026-10-03", "type": "deprecation_announced", "model": "poolside/laguna-s-2.1", "name": "Poolside: Laguna S 2.1", "expires": "2026-10-31"}
+{"date": "2026-10-03", "type": "deprecation_announced", "model": "poolside/laguna-s-2.1:free", "name": "Poolside: Laguna S 2.1 (free)", "expires": "2026-10-31"}
+{"date": "2026-10-03", "type": "deprecation_announced", "model": "poolside/laguna-xs-2.1", "name": "Poolside: Laguna XS 2.1", "expires": "2026-10-31"}
+{"date": "2026-10-03", "type": "deprecation_announced", "model": "poolside/laguna-xs-2.1:free", "name": "Poolside: Laguna XS 2.1 (free)", "expires": "2026-10-31"}
+{"date": "2026-10-03", "type": "deprecation_announced", "model": "qwen/qwen3-next-80b-a3b-thinking", "name": "Qwen: Qwen3 Next 80B A3B Thinking", "expires": "2026-10-09"}
+{"date": "2026-10-03", "type": "model_added", "model": "inclusionai/ling-3.1-flash", "name": "inclusionAI: Ling 3.1 Flash", "in": 0.0, "out": 0.0}
+{"date": "2026-10-03", "type": "model_added", "model": "nvidia/switchyard", "name": "NVIDIA: Switchyard", "in": null, "out": null}
