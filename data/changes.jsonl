@@ -146,3 +146,10 @@
 {"date": "2026-10-08", "type": "model_added", "model": "anthropic/claude-haiku-5.5", "name": "Anthropic: Claude Haiku 5.5", "in": 0.1, "out": 0.5}
 {"date": "2026-10-08", "type": "model_added", "model": "anthropic/claude-haiku-5.5:batch", "name": "Anthropic: Claude Haiku 5.5 (batch)", "in": 0.05, "out": 0.25}
 {"date": "2026-10-08", "type": "pricing_page_changed", "vendor": "mistral", "url": "https://mistral.ai/pricing"}
+{"date": "2026-10-09", "type": "model_added", "model": "inclusionai/ling-3.0-flash-sante", "name": "inclusionAI: Ling 3.0 Flash Sante", "in": 0.042, "out": 0.1232}
+{"date": "2026-10-09", "type": "model_added", "model": "openai/gpt-6.1-sol-pro:batch", "name": "OpenAI: GPT-6.1 Sol Pro (batch)", "in": 1.0, "out": 5.0}
+{"date": "2026-10-09", "type": "model_added", "model": "openai/gpt-6.1-sol:batch", "name": "OpenAI: GPT-6.1 Sol (batch)", "in": 1.0, "out": 5.0}
+{"date": "2026-10-09", "type": "model_added", "model": "stepfun/step-5-preview", "name": "StepFun: Step 5 Preview", "in": 1.0, "out": 2.7}
+{"date": "2026-10-09", "type": "model_removed", "model": "baidu/ernie-4.5-vl-424b-a47b", "name": "Baidu: ERNIE 4.5 VL 424B A47B "}
+{"date": "2026-10-09", "type": "model_removed", "model": "inclusionai/ling-3.0-flash-sante:free", "name": "inclusionAI: Ling 3.0 Flash Sante (free)"}
+{"date": "2026-10-09", "type": "pricing_page_changed", "vendor": "xai", "url": "https://docs.x.ai/docs/models"}
