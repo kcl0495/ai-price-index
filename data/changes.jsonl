@@ -153,3 +153,17 @@
 {"date": "2026-10-09", "type": "model_removed", "model": "baidu/ernie-4.5-vl-424b-a47b", "name": "Baidu: ERNIE 4.5 VL 424B A47B "}
 {"date": "2026-10-09", "type": "model_removed", "model": "inclusionai/ling-3.0-flash-sante:free", "name": "inclusionAI: Ling 3.0 Flash Sante (free)"}
 {"date": "2026-10-09", "type": "pricing_page_changed", "vendor": "xai", "url": "https://docs.x.ai/docs/models"}
+{"date": "2026-10-10", "type": "deprecation_announced", "model": "xiaomi/mimo-v2.5", "name": "Xiaomi: MiMo-V2.5", "expires": "2026-10-21"}
+{"date": "2026-10-10", "type": "deprecation_announced", "model": "xiaomi/mimo-v2.5-pro", "name": "Xiaomi: MiMo-V2.5-Pro", "expires": "2026-10-21"}
+{"date": "2026-10-10", "type": "model_removed", "model": "qwen/qwen-plus-2025-07-28", "name": "Qwen: Qwen Plus 0728"}
+{"date": "2026-10-10", "type": "model_removed", "model": "qwen/qwen3-235b-a22b", "name": "Qwen: Qwen3 235B A22B"}
+{"date": "2026-10-10", "type": "model_removed", "model": "qwen/qwen3-30b-a3b-thinking-2507", "name": "Qwen: Qwen3 30B A3B Thinking 2507"}
+{"date": "2026-10-10", "type": "model_removed", "model": "qwen/qwen3-8b", "name": "Qwen: Qwen3 8B"}
+{"date": "2026-10-10", "type": "model_removed", "model": "qwen/qwen3-coder-plus", "name": "Qwen: Qwen3 Coder Plus"}
+{"date": "2026-10-10", "type": "model_removed", "model": "qwen/qwen3-max", "name": "Qwen: Qwen3 Max"}
+{"date": "2026-10-10", "type": "model_removed", "model": "qwen/qwen3-max-thinking", "name": "Qwen: Qwen3 Max Thinking"}
+{"date": "2026-10-10", "type": "model_removed", "model": "qwen/qwen3-vl-235b-a22b-thinking", "name": "Qwen: Qwen3 VL 235B A22B Thinking"}
+{"date": "2026-10-10", "type": "model_removed", "model": "qwen/qwen3-vl-32b-instruct", "name": "Qwen: Qwen3 VL 32B Instruct"}
+{"date": "2026-10-10", "type": "model_removed", "model": "qwen/qwen3-vl-8b-thinking", "name": "Qwen: Qwen3 VL 8B Thinking"}
+{"date": "2026-10-10", "type": "model_removed", "model": "qwen/qwen3.6-max-preview", "name": "Qwen: Qwen3.6 Max Preview"}
+{"date": "2026-10-10", "type": "pricing_page_changed", "vendor": "google", "url": "https://ai.google.dev/pricing"}
