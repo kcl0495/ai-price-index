@@ -171,3 +171,14 @@
 {"date": "2026-10-13", "type": "model_added", "model": "meta/muse-wonder", "name": "Meta: Muse Wonder", "in": 4.0, "out": 20.0}
 {"date": "2026-10-13", "type": "pricing_page_changed", "vendor": "mistral", "url": "https://mistral.ai/pricing"}
 {"date": "2026-10-13", "type": "pricing_page_changed", "vendor": "xai", "url": "https://docs.x.ai/docs/models"}
+{"date": "2026-10-14", "type": "deprecation_announced", "model": "unbiased/pareto-26.10-preview", "name": "Pareto 26.10 Preview", "expires": "2026-10-15"}
+{"date": "2026-10-14", "type": "model_added", "model": "google/gemini-4-argon", "name": "Google: Gemini 4 Argon", "in": 2.0, "out": 10.0}
+{"date": "2026-10-14", "type": "model_added", "model": "google/gemini-4-argon:batch", "name": "Google: Gemini 4 Argon (batch)", "in": 1.0, "out": 5.0}
+{"date": "2026-10-14", "type": "model_added", "model": "liquid/lfm-2.5-24b-a2b", "name": "LiquidAI: LFM2.5-24B-A2B", "in": 0.05, "out": 0.7}
+{"date": "2026-10-14", "type": "model_added", "model": "scaledown/extract", "name": "ScaleDown: Extract", "in": 0.04, "out": 0.0}
+{"date": "2026-10-14", "type": "model_added", "model": "scaledown/summarize", "name": "ScaleDown: Summarize", "in": 0.04, "out": 0.0}
+{"date": "2026-10-14", "type": "model_added", "model": "unbiased/pareto-26.9", "name": "Pareto 26.9", "in": 2.5, "out": 7.5}
+{"date": "2026-10-14", "type": "model_removed", "model": "apodex/apodex-1.1-mini:free", "name": "Apodex: Apodex 1.1 Mini (free)"}
+{"date": "2026-10-14", "type": "model_removed", "model": "inclusionai/ling-3.0-flash-fin", "name": "inclusionAI: Ling 3.0 Flash Fin"}
+{"date": "2026-10-14", "type": "model_removed", "model": "inclusionai/ling-3.0-flash-sante", "name": "inclusionAI: Ling 3.0 Flash Sante"}
+{"date": "2026-10-14", "type": "model_removed", "model": "unbiased/pareto", "name": "Pareto"}
