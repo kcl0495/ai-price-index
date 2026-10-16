@@ -182,3 +182,12 @@
 {"date": "2026-10-14", "type": "model_removed", "model": "inclusionai/ling-3.0-flash-fin", "name": "inclusionAI: Ling 3.0 Flash Fin"}
 {"date": "2026-10-14", "type": "model_removed", "model": "inclusionai/ling-3.0-flash-sante", "name": "inclusionAI: Ling 3.0 Flash Sante"}
 {"date": "2026-10-14", "type": "model_removed", "model": "unbiased/pareto", "name": "Pareto"}
+{"date": "2026-10-15", "type": "price_changed", "model": "openai/gpt-5.6-sol", "name": "OpenAI: GPT-5.6 Sol", "field": "in", "from": 2.0, "to": 4.0, "pct": 100.0}
+{"date": "2026-10-15", "type": "price_changed", "model": "openai/gpt-5.6-sol", "name": "OpenAI: GPT-5.6 Sol", "field": "out", "from": 10.0, "to": 20.0, "pct": 100.0}
+{"date": "2026-10-15", "type": "price_changed", "model": "openai/gpt-5.6-sol-pro", "name": "OpenAI: GPT-5.6 Sol Pro", "field": "in", "from": 2.0, "to": 4.0, "pct": 100.0}
+{"date": "2026-10-15", "type": "price_changed", "model": "openai/gpt-5.6-sol-pro", "name": "OpenAI: GPT-5.6 Sol Pro", "field": "out", "from": 10.0, "to": 20.0, "pct": 100.0}
+{"date": "2026-10-15", "type": "price_changed", "model": "openai/gpt-5.6-sol-pro:batch", "name": "OpenAI: GPT-5.6 Sol Pro (batch)", "field": "in", "from": 1.0, "to": 2.0, "pct": 100.0}
+{"date": "2026-10-15", "type": "price_changed", "model": "openai/gpt-5.6-sol-pro:batch", "name": "OpenAI: GPT-5.6 Sol Pro (batch)", "field": "out", "from": 5.0, "to": 10.0, "pct": 100.0}
+{"date": "2026-10-15", "type": "price_changed", "model": "openai/gpt-5.6-sol:batch", "name": "OpenAI: GPT-5.6 Sol (batch)", "field": "in", "from": 1.0, "to": 2.0, "pct": 100.0}
+{"date": "2026-10-15", "type": "price_changed", "model": "openai/gpt-5.6-sol:batch", "name": "OpenAI: GPT-5.6 Sol (batch)", "field": "out", "from": 5.0, "to": 10.0, "pct": 100.0}
+{"date": "2026-10-15", "type": "pricing_page_changed", "vendor": "google", "url": "https://ai.google.dev/pricing"}
