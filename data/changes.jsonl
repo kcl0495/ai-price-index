@@ -201,3 +201,10 @@
 {"date": "2026-10-16", "type": "price_changed", "model": "google/gemini-3.8-flash", "name": "Google: Gemini 3.8 Flash", "field": "in", "from": 0.75, "to": 0.825, "pct": 10.0}
 {"date": "2026-10-16", "type": "price_changed", "model": "google/gemini-3.8-flash", "name": "Google: Gemini 3.8 Flash", "field": "out", "from": 3.75, "to": 4.125, "pct": 10.0}
 {"date": "2026-10-16", "type": "pricing_page_changed", "vendor": "mistral", "url": "https://mistral.ai/pricing"}
+{"date": "2026-10-17", "type": "model_added", "model": "deepseek/deepseek-v4.1-flash-1017", "name": "DeepSeek: DeepSeek V4.1 Flash 1017", "in": 0.15, "out": 0.6}
+{"date": "2026-10-17", "type": "model_added", "model": "elorian/glimpse", "name": "Elorian: Glimpse", "in": 0.6, "out": 3.0}
+{"date": "2026-10-17", "type": "model_added", "model": "qwen/qwen3.7-plus:batch", "name": "Qwen: Qwen3.7 Plus (batch)", "in": 0.23, "out": 0.92}
+{"date": "2026-10-17", "type": "model_added", "model": "reflection/beam-1.0-501b-a23b", "name": "Reflection: Beam 1.0 501B A23B", "in": 1.0, "out": 3.0}
+{"date": "2026-10-17", "type": "model_added", "model": "xingchen-agi/xing4.0-29b-a4b:free", "name": "XingChen: Xing4.0 29B A4B (free)", "in": 0.0, "out": 0.0}
+{"date": "2026-10-17", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
+{"date": "2026-10-17", "type": "pricing_page_changed", "vendor": "google", "url": "https://ai.google.dev/pricing"}
