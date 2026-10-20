@@ -209,3 +209,7 @@
 {"date": "2026-10-17", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
 {"date": "2026-10-17", "type": "pricing_page_changed", "vendor": "google", "url": "https://ai.google.dev/pricing"}
 {"date": "2026-10-18", "type": "model_added", "model": "unbiased/pareto-26.10", "name": "Pareto 26.10", "in": 0.8, "out": 3.2}
+{"date": "2026-10-19", "type": "model_added", "model": "minimax/minimax-m3.1-flash:free", "name": "MiniMax: MiniMax M3.1 Flash (free)", "in": 0.0, "out": 0.0}
+{"date": "2026-10-19", "type": "model_removed", "model": "deepseek/deepseek-r1", "name": "DeepSeek: R1"}
+{"date": "2026-10-19", "type": "model_removed", "model": "microsoft/wizardlm-2-8x22b", "name": "WizardLM-2 8x22B"}
+{"date": "2026-10-19", "type": "model_removed", "model": "sao10k/l3.3-euryale-70b", "name": "Sao10K: Llama 3.3 Euryale 70B"}
