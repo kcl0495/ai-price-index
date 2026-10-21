@@ -213,3 +213,7 @@
 {"date": "2026-10-19", "type": "model_removed", "model": "deepseek/deepseek-r1", "name": "DeepSeek: R1"}
 {"date": "2026-10-19", "type": "model_removed", "model": "microsoft/wizardlm-2-8x22b", "name": "WizardLM-2 8x22B"}
 {"date": "2026-10-19", "type": "model_removed", "model": "sao10k/l3.3-euryale-70b", "name": "Sao10K: Llama 3.3 Euryale 70B"}
+{"date": "2026-10-20", "type": "deprecation_announced", "model": "nousresearch/hermes-3-llama-3.1-405b", "name": "Nous: Hermes 3 405B Instruct", "expires": "2026-11-02"}
+{"date": "2026-10-20", "type": "deprecation_announced", "model": "nousresearch/hermes-3-llama-3.1-70b", "name": "Nous: Hermes 3 70B Instruct", "expires": "2026-11-02"}
+{"date": "2026-10-20", "type": "model_added", "model": "inception/mercury-3", "name": "Inception: Mercury 3", "in": 0.1, "out": 0.35}
+{"date": "2026-10-20", "type": "pricing_page_changed", "vendor": "google", "url": "https://ai.google.dev/pricing"}
