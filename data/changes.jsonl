@@ -217,3 +217,5 @@
 {"date": "2026-10-20", "type": "deprecation_announced", "model": "nousresearch/hermes-3-llama-3.1-70b", "name": "Nous: Hermes 3 70B Instruct", "expires": "2026-11-02"}
 {"date": "2026-10-20", "type": "model_added", "model": "inception/mercury-3", "name": "Inception: Mercury 3", "in": 0.1, "out": 0.35}
 {"date": "2026-10-20", "type": "pricing_page_changed", "vendor": "google", "url": "https://ai.google.dev/pricing"}
+{"date": "2026-10-21", "type": "model_removed", "model": "google/gemini-2.5-flash:batch", "name": "Google: Gemini 2.5 Flash (batch)"}
+{"date": "2026-10-21", "type": "model_removed", "model": "google/gemini-2.5-pro:batch", "name": "Google: Gemini 2.5 Pro (batch)"}
