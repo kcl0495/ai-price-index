@@ -226,3 +226,8 @@
 {"date": "2026-10-23", "type": "model_removed", "model": "minimax/minimax-m3.1-flash:free", "name": "MiniMax: MiniMax M3.1 Flash (free)"}
 {"date": "2026-10-23", "type": "pricing_page_changed", "vendor": "google", "url": "https://ai.google.dev/pricing"}
 {"date": "2026-10-24", "type": "model_added", "model": "moonshotai/kimi-k3.1-pro", "name": "MoonshotAI: Kimi K3.1 Pro", "in": 2.0, "out": 10.0}
+{"date": "2026-10-25", "type": "deprecation_announced", "model": "z-ai/glm-4.5v", "name": "Z.ai: GLM 4.5V", "expires": "2026-12-31"}
+{"date": "2026-10-25", "type": "model_added", "model": "liquid/lfm-2.5-2.6b", "name": "LiquidAI: LFM2.5-2.6B", "in": 0.35, "out": 0.5}
+{"date": "2026-10-25", "type": "model_removed", "model": "openai/gpt-3.5-turbo", "name": "OpenAI: GPT-3.5 Turbo"}
+{"date": "2026-10-25", "type": "model_removed", "model": "openai/gpt-3.5-turbo-instruct", "name": "OpenAI: GPT-3.5 Turbo Instruct"}
+{"date": "2026-10-25", "type": "model_removed", "model": "openai/gpt-3.5-turbo:batch", "name": "OpenAI: GPT-3.5 Turbo (batch)"}
