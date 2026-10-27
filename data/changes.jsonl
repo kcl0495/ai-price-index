@@ -231,3 +231,4 @@
 {"date": "2026-10-25", "type": "model_removed", "model": "openai/gpt-3.5-turbo", "name": "OpenAI: GPT-3.5 Turbo"}
 {"date": "2026-10-25", "type": "model_removed", "model": "openai/gpt-3.5-turbo-instruct", "name": "OpenAI: GPT-3.5 Turbo Instruct"}
 {"date": "2026-10-25", "type": "model_removed", "model": "openai/gpt-3.5-turbo:batch", "name": "OpenAI: GPT-3.5 Turbo (batch)"}
+{"date": "2026-10-26", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
