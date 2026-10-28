@@ -232,3 +232,17 @@
 {"date": "2026-10-25", "type": "model_removed", "model": "openai/gpt-3.5-turbo-instruct", "name": "OpenAI: GPT-3.5 Turbo Instruct"}
 {"date": "2026-10-25", "type": "model_removed", "model": "openai/gpt-3.5-turbo:batch", "name": "OpenAI: GPT-3.5 Turbo (batch)"}
 {"date": "2026-10-26", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
+{"date": "2026-10-27", "type": "deprecation_announced", "model": "meta-llama/llama-3.1-70b-instruct", "name": "Meta: Llama 3.1 70B Instruct", "expires": "2026-11-03"}
+{"date": "2026-10-27", "type": "deprecation_announced", "model": "upstage/solar-pro-3", "name": "Upstage: Solar Pro 3", "expires": "2026-10-30"}
+{"date": "2026-10-27", "type": "model_added", "model": "openai/gpt-6.1-terra", "name": "OpenAI: GPT-6.1 Terra", "in": 1.0, "out": 5.0}
+{"date": "2026-10-27", "type": "model_added", "model": "openai/gpt-6.1-terra-pro", "name": "OpenAI: GPT-6.1 Terra Pro", "in": 1.0, "out": 5.0}
+{"date": "2026-10-27", "type": "model_added", "model": "openai/gpt-6.1-terra-pro:batch", "name": "OpenAI: GPT-6.1 Terra Pro (batch)", "in": 0.5, "out": 2.5}
+{"date": "2026-10-27", "type": "model_added", "model": "openai/gpt-6.1-terra:batch", "name": "OpenAI: GPT-6.1 Terra (batch)", "in": 0.5, "out": 2.5}
+{"date": "2026-10-27", "type": "model_removed", "model": "arcee-ai/trinity-large-thinking", "name": "Arcee AI: Trinity Large Thinking"}
+{"date": "2026-10-27", "type": "model_removed", "model": "ibm-granite/granite-4.0-h-micro", "name": "IBM: Granite 4.0 Micro"}
+{"date": "2026-10-27", "type": "model_removed", "model": "mistralai/codestral-2508:batch", "name": "Mistral: Codestral 2508 (batch)"}
+{"date": "2026-10-27", "type": "model_removed", "model": "mistralai/ministral-8b-2512:batch", "name": "Mistral: Ministral 3 8B 2512 (batch)"}
+{"date": "2026-10-27", "type": "model_removed", "model": "mistralai/mistral-large-2512:batch", "name": "Mistral: Mistral Large 3 2512 (batch)"}
+{"date": "2026-10-27", "type": "model_removed", "model": "mistralai/mistral-medium-3.1:batch", "name": "Mistral: Mistral Medium 3.1 (batch)"}
+{"date": "2026-10-27", "type": "model_removed", "model": "mistralai/mistral-small-2603:batch", "name": "Mistral: Mistral Small 4 (batch)"}
+{"date": "2026-10-27", "type": "model_removed", "model": "nvidia/nemotron-3-super-120b-a12b:free", "name": "NVIDIA: Nemotron 3 Super (free)"}
