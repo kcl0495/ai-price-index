@@ -246,3 +246,5 @@
 {"date": "2026-10-27", "type": "model_removed", "model": "mistralai/mistral-medium-3.1:batch", "name": "Mistral: Mistral Medium 3.1 (batch)"}
 {"date": "2026-10-27", "type": "model_removed", "model": "mistralai/mistral-small-2603:batch", "name": "Mistral: Mistral Small 4 (batch)"}
 {"date": "2026-10-27", "type": "model_removed", "model": "nvidia/nemotron-3-super-120b-a12b:free", "name": "NVIDIA: Nemotron 3 Super (free)"}
+{"date": "2026-10-28", "type": "model_added", "model": "prism-ml/ternary-bonsai-2-9b", "name": "PrismML: Ternary Bonsai 2 9B", "in": 0.08, "out": 0.13}
+{"date": "2026-10-28", "type": "pricing_page_changed", "vendor": "xai", "url": "https://docs.x.ai/docs/models"}
