@@ -248,3 +248,13 @@
 {"date": "2026-10-27", "type": "model_removed", "model": "nvidia/nemotron-3-super-120b-a12b:free", "name": "NVIDIA: Nemotron 3 Super (free)"}
 {"date": "2026-10-28", "type": "model_added", "model": "prism-ml/ternary-bonsai-2-9b", "name": "PrismML: Ternary Bonsai 2 9B", "in": 0.08, "out": 0.13}
 {"date": "2026-10-28", "type": "pricing_page_changed", "vendor": "xai", "url": "https://docs.x.ai/docs/models"}
+{"date": "2026-10-29", "type": "model_added", "model": "particle-ai/particle-1", "name": "Particle AI: Particle-1", "in": 0.25, "out": 1.0}
+{"date": "2026-10-29", "type": "model_removed", "model": "openai/gpt-4-turbo", "name": "OpenAI: GPT-4 Turbo"}
+{"date": "2026-10-29", "type": "model_removed", "model": "openai/o1", "name": "OpenAI: o1"}
+{"date": "2026-10-29", "type": "model_removed", "model": "openai/o1-pro", "name": "OpenAI: o1-pro"}
+{"date": "2026-10-29", "type": "model_removed", "model": "openai/o3-mini", "name": "OpenAI: o3 Mini"}
+{"date": "2026-10-29", "type": "model_removed", "model": "openai/o3-mini-high", "name": "OpenAI: o3 Mini High"}
+{"date": "2026-10-29", "type": "model_removed", "model": "openai/o4-mini", "name": "OpenAI: o4 Mini"}
+{"date": "2026-10-29", "type": "model_removed", "model": "openai/o4-mini-high", "name": "OpenAI: o4 Mini High"}
+{"date": "2026-10-29", "type": "model_removed", "model": "qwen/qwen3-next-80b-a3b-thinking", "name": "Qwen: Qwen3 Next 80B A3B Thinking"}
+{"date": "2026-10-29", "type": "pricing_page_changed", "vendor": "google", "url": "https://ai.google.dev/pricing"}
