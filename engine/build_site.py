@@ -17,6 +17,8 @@ opposite of the programmatic-SEO pattern that got penalised.
 stdlib only.
 """
 import json, pathlib, datetime, html, re, sys, collections, shutil
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from modelid import is_variant   # one definition, shared with collect.py
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SNAPDIR = ROOT / "data" / "snapshots"
@@ -185,7 +187,7 @@ td.name{white-space:normal;min-width:210px}
   border-radius:999px;padding:1px 9px;font-size:11px;color:var(--muted)}
 .up{color:var(--up)} .down{color:var(--down)}
 .feed{list-style:none;padding:0;margin:0}
-.feed li{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+.feed>li{background:var(--panel);border:1px solid var(--line);border-radius:9px;
   padding:11px 14px;margin-bottom:8px;font-size:14px;display:flex;gap:12px;align-items:baseline}
 .feed .d{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums;flex:none;width:88px}
 .empty{background:var(--panel);border:1px dashed var(--line);border-radius:10px;
@@ -195,6 +197,15 @@ footer{border-top:1px solid var(--line);margin-top:52px;padding:22px 0 40px;
 code{background:var(--chip);padding:1px 6px;border-radius:5px;font-size:13px}
 .prose{max-width:68ch} .prose p,.prose li{color:var(--ink)}
 .prose h2{margin-top:30px}
+.feed>li{flex-wrap:wrap}
+.feed details{flex-basis:100%;margin-top:6px}
+.feed summary{cursor:pointer;color:var(--accent);font-size:13px;list-style:none}
+.feed summary::-webkit-details-marker{display:none}
+.feed summary:before{content:"B8 ";transition:none}
+.feed details[open] summary:before{content:"BE "}
+ul.plain{list-style:none;padding:8px 0 0;margin:0;columns:2;column-gap:24px}
+ul.plain li{font-size:13px;color:var(--muted);padding:1px 0}
+@media (max-width:620px){ul.plain{columns:1}}
 """
 
 SORT_JS = """
@@ -293,16 +304,6 @@ def vendor_of(mid):
     return mid.split("/")[0] if "/" in mid else "other"
 
 
-def is_variant(mid):
-    """Batch/preview/dated aliases of a model priced differently. They belong in
-    the index table but must not get their own pages -- near-duplicate pages are
-    exactly the thin-content pattern the 2026 spam updates punished."""
-    tail = mid.rsplit("/", 1)[-1]
-    return (tail.endswith(("-batch", "-preview", "-exp", "-latest"))
-            or ":" in tail
-            or re.search(r"-\d{4}$|-\d{8}$", tail) is not None)
-
-
 def pick_core(models):
     """Curate the day-one page set: recent, priced, canonical models from major labs."""
     cand = [(mid, m) for mid, m in models.items()
@@ -328,7 +329,58 @@ def headline_models(models, core):
     return picked[:14]
 
 
-def build_index(latest, hist, changes, site_url):
+def dataset_jsonld(site_url, latest, first_date, n_models):
+    """schema.org/Dataset.
+
+    Worth the markup because it is what gets a dataset into Google Dataset
+    Search, which is a far less contested surface than web search and is
+    exactly where someone looking for "LLM pricing over time" would go.
+    """
+    d = {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "AI Model Price Index",
+        "description": ("Daily snapshots of published API pricing for %d large language "
+                        "models, recorded once per day since %s. Input and output price per "
+                        "million tokens, context window, modality and announced retirement "
+                        "dates, plus a dated log of every confirmed change."
+                        % (n_models, first_date)),
+        "url": site_url + "/",
+        "sameAs": "https://github.com/kcl0495/ai-price-index",
+        "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "isAccessibleForFree": True,
+        "creator": {"@type": "Organization", "name": "AI Price Index",
+                    "url": site_url + "/"},
+        "temporalCoverage": "%s/%s" % (first_date, latest["date"]),
+        "dateModified": latest["date"],
+        "keywords": ["LLM pricing", "API pricing", "large language models",
+                     "cost per token", "AI model comparison", "price history"],
+        "measurementTechnique": "Daily automated collection from public pricing sources",
+        "variableMeasured": [
+            {"@type": "PropertyValue", "name": "input price",
+             "description": "USD per 1M input tokens", "unitText": "USD/1M tokens"},
+            {"@type": "PropertyValue", "name": "output price",
+             "description": "USD per 1M output tokens", "unitText": "USD/1M tokens"},
+            {"@type": "PropertyValue", "name": "context window",
+             "description": "Maximum context length", "unitText": "tokens"},
+        ],
+        "distribution": [
+            {"@type": "DataDownload", "encodingFormat": "application/json",
+             "contentUrl": site_url + "/api/latest.json",
+             "name": "Current prices for all tracked models (JSON)"},
+            {"@type": "DataDownload", "encodingFormat": "application/json",
+             "contentUrl": site_url + "/api/changes.json",
+             "name": "Dated log of every confirmed change (JSON)"},
+            {"@type": "DataDownload", "encodingFormat": "text/csv",
+             "contentUrl": site_url + "/api/prices.csv",
+             "name": "Current price index (CSV)"},
+        ],
+    }
+    return ('<script type="application/ld+json">%s</script>'
+            % json.dumps(d, ensure_ascii=False, separators=(",", ":")))
+
+
+def build_index(latest, hist, changes, site_url, first_date):
     models = latest["models"]
     priced = {k: v for k, v in models.items() if v.get("in") is not None}
     vendors = sorted({vendor_of(k) for k in priced})
@@ -431,14 +483,95 @@ Sparklines show input-price history since tracking began.</p>
 </div>
 <p class="lede" style="margin-top:14px">Snapshot of %s &middot;
 <a href="/api/">download the raw data</a> &middot;
-<a href="/about.html">how this is collected</a></p>
-""" % (len(priced), vopts, "".join(rows), esc(latest["date"]))
+<a href="/about.html">how this is collected</a> &middot;
+data released under <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="license noopener">CC0&nbsp;1.0</a></p>
+%s
+""" % (len(priced), vopts, "".join(rows), esc(latest["date"]),
+       dataset_jsonld(site_url, latest, first_date, len(models)))
 
     return page("AI Model Price Index — daily LLM API pricing tracker",
                 "Independent daily tracking of %d LLM API prices across %d providers. "
                 "Input and output cost per million tokens, context windows, and a full "
                 "history of every price change." % (len(models), len(vendors)),
                 body, site_url + "/", SORT_JS)
+
+
+VENDOR_LABEL = {"openai": "OpenAI", "anthropic": "Anthropic", "google": "Google",
+                "x-ai": "xAI", "meta-llama": "Meta", "mistralai": "Mistral",
+                "qwen": "Qwen", "deepseek": "DeepSeek", "z-ai": "Z.AI",
+                "moonshotai": "Moonshot", "nvidia": "NVIDIA", "microsoft": "Microsoft",
+                "amazon": "Amazon", "cohere": "Cohere", "ai21": "AI21",
+                "perplexity": "Perplexity", "inclusionai": "InclusionAI"}
+
+GROUP_AT = 3   # same vendor, same day, same kind -- below this, list them singly
+
+
+def vendor_label(mid):
+    v = vendor_of(mid)
+    return VENDOR_LABEL.get(v, v.replace("-", " ").title())
+
+
+def group_events(changes):
+    """Collapse "one vendor retired nine models today" into one line.
+
+    Left flat, the single most newsworthy thing in the dataset -- a lab
+    sunsetting a whole family at once -- reads as nine interchangeable rows and
+    the story in it is invisible.
+    """
+    buckets, out = collections.OrderedDict(), []
+    for c in changes:
+        t = c.get("type")
+        if t in ("model_removed", "model_added", "deprecation_announced") and c.get("model"):
+            buckets.setdefault((c["date"], t, vendor_of(c["model"])), []).append(c)
+        else:
+            out.append(("single", c))
+    for (date, t, _v), group in buckets.items():
+        if len(group) >= GROUP_AT:
+            out.append(("group", {"date": date, "type": t, "items": group}))
+        else:
+            out.extend(("single", g) for g in group)
+    out.sort(key=lambda kv: kv[1]["date"], reverse=True)
+    return out
+
+
+def render_single(c):
+    t = c.get("type")
+    nm = esc(c.get("name") or c.get("model") or c.get("vendor") or "")
+    if t == "price_changed":
+        pct = c.get("pct")
+        cls = "up" if (pct or 0) > 0 else "down"
+        word = "rose" if (pct or 0) > 0 else "fell"
+        return ('<strong>%s</strong> %s price %s from %s to %s '
+                '<span class="%s">(%s%s%%)</span>' % (
+                    nm, esc(c.get("field")), word, money(c.get("from")),
+                    money(c.get("to")), cls, "+" if (pct or 0) > 0 else "", pct))
+    if t == "model_added":
+        return '<strong>%s</strong> added &mdash; %s in / %s out <span class="chip">new</span>' % (
+            nm, money(c.get("in")), money(c.get("out")))
+    if t == "model_removed":
+        return '<strong>%s</strong> removed from the catalogue' % nm
+    if t == "context_changed":
+        return '<strong>%s</strong> context window %s &rarr; %s' % (
+            nm, num(c.get("from")), num(c.get("to")))
+    if t == "deprecation_announced":
+        return ('<strong>%s</strong> scheduled for retirement on %s '
+                '<span class="chip">deprecation</span>' % (nm, esc(c.get("expires"))))
+    if t == "pricing_page_changed":
+        return '<strong>%s</strong> edited its public pricing page' % nm
+    return '<strong>%s</strong> %s' % (nm, esc(t))
+
+
+def render_group(g):
+    items, t = g["items"], g["type"]
+    lab = vendor_label(items[0]["model"])
+    verb = {"model_removed": "retired %d models in one day",
+            "model_added": "launched %d models in one day",
+            "deprecation_announced": "set retirement dates for %d models"}[t].replace(
+                "%d", str(len(items)))
+    names = "".join('<li>%s</li>' % esc(i.get("name") or i["model"]) for i in items)
+    return ('<strong>%s %s</strong> <span class="chip">%d</span>'
+            '<details><summary>which models</summary><ul class="plain">%s</ul></details>'
+            % (esc(lab), esc(verb), len(items), names))
 
 
 def build_changes(changes, site_url):
@@ -449,44 +582,21 @@ def build_changes(changes, site_url):
 <div class="empty">Tracking started today. The first comparison runs tomorrow &mdash;
 this log fills in from the second daily snapshot onward.</div>"""
     else:
-        items = []
-        for c in changes[:400]:
-            t = c.get("type")
-            nm = esc(c.get("name") or c.get("model") or c.get("vendor") or "")
-            if t == "price_changed":
-                pct = c.get("pct")
-                cls = "up" if (pct or 0) > 0 else "down"
-                word = "rose" if (pct or 0) > 0 else "fell"
-                txt = ('<strong>%s</strong> %s price %s from %s to %s '
-                       '<span class="%s">(%s%s%%)</span>' % (
-                           nm, esc(c.get("field")), word, money(c.get("from")),
-                           money(c.get("to")), cls, "+" if (pct or 0) > 0 else "", pct))
-            elif t == "model_added":
-                txt = '<strong>%s</strong> added &mdash; %s in / %s out <span class="chip">new</span>' % (
-                    nm, money(c.get("in")), money(c.get("out")))
-            elif t == "model_removed":
-                txt = '<strong>%s</strong> removed from the catalogue' % nm
-            elif t == "context_changed":
-                txt = '<strong>%s</strong> context window %s &rarr; %s' % (
-                    nm, num(c.get("from")), num(c.get("to")))
-            elif t == "deprecation_announced":
-                txt = '<strong>%s</strong> scheduled for retirement on %s <span class="chip">deprecation</span>' % (
-                    nm, esc(c.get("expires")))
-            elif t == "pricing_page_changed":
-                txt = '<strong>%s</strong> edited its public pricing page' % nm
-            else:
-                txt = '<strong>%s</strong> %s' % (nm, esc(t))
-            items.append('<li><span class="d">%s</span><span>%s</span></li>' % (esc(c.get("date")), txt))
+        rows = group_events(changes)[:400]
+        items = ['<li><span class="d">%s</span><span>%s</span></li>' % (
+            esc(c["date"]), render_group(c) if kind == "group" else render_single(c))
+            for kind, c in rows]
         body = """
 <h1>Price change log</h1>
 <p class="lede">Confirmed changes only, dated to the day they first appeared.
 %d events recorded so far. A change is logged once it has held for two consecutive
-daily snapshots, so short-lived flickers never appear here.
+daily snapshots, so short-lived flickers never appear here, and batch, free and
+preview tiers are left out so one decision is reported once.
 <a href="/about.html#changes">What counts as a price change</a>.</p>
 <ul class="feed">%s</ul>""" % (len(changes), "".join(items))
     return page("LLM API price change log",
                 "A dated record of every LLM API price change, model launch, "
-                "context-window change and deprecation we detect.",
+                "retirement and deprecation we detect, including whole-family sunsets.",
                 body, site_url + "/changes.html")
 
 
@@ -569,6 +679,14 @@ price change, because the model's maker did not change anything.</p>
 <p>Every event &mdash; price change, new model, removal, pricing-page edit &mdash; must hold
 for two consecutive daily snapshots before it is logged. That costs a day of latency and
 removes almost all false alarms.</p>
+<p>Batch, free, preview and pinned dated tiers are left out of the log. They are alternative
+packagings of a model that already has an entry, so including them reported one decision
+several times over. They still appear in the price index above, where someone comparing
+offers wants to see them.</p>
+<p>When one provider retires, launches or schedules the retirement of three or more models
+on the same day, those are shown as a single entry with the list folded inside it. A whole
+family being sunset at once is one decision, and spread across nine identical-looking rows
+it stops reading as one.</p>
 
 <h2>Limits worth knowing</h2>
 <ul>
@@ -653,6 +771,7 @@ def main():
         print("no snapshots -- run engine/collect.py first", file=sys.stderr)
         return 1
     latest = snaps[-1]
+    first_date = snaps[0]["date"]
     hist = build_history(snaps)
     changes = load_changes()
 
@@ -664,7 +783,7 @@ def main():
 
     urls = ["/", "/changes.html", "/about.html", "/api/"]
 
-    write_page(SITE / "index.html", build_index(latest, hist, changes, site_url))
+    write_page(SITE / "index.html", build_index(latest, hist, changes, site_url, first_date))
     write_page(SITE / "changes.html", build_changes(changes, site_url))
     write_page(SITE / "about.html", build_about(latest, len(snaps), site_url))
     write_page(SITE / "api" / "index.html", build_api_page(latest, changes, site_url))

@@ -164,22 +164,11 @@ def collect_vendor_pages(cfg):
 
 
 STABLE_DAYS = 2
-# Vendors whose OpenRouter price IS the vendor's own list price. Everything
-# else (open-weight models served by many third-party hosts) has a market
-# price that drifts daily with provider routing; the first week of data showed
-# 140 "price changes" there, almost all oscillation, and zero movement across
-# the 152 first-party models. Logging that drift as price changes would make
-# the change log wrong in a way anyone could check against the vendor.
-FIRST_PARTY = ("anthropic/", "openai/", "google/gemini", "x-ai/")
 
-
-def is_alias(mid):
-    """'~vendor/model-latest' ids are floating pointers, not models."""
-    return mid.startswith("~") or "/~" in mid
-
-
-def is_first_party(mid):
-    return mid.startswith(FIRST_PARTY) and "gpt-oss" not in mid
+# Shared with the site generator so the changelog and the page gate can never
+# disagree about what a real model is.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from modelid import is_alias, is_first_party, is_reportable   # noqa: E402
 
 
 class Confirmer:
@@ -220,7 +209,7 @@ def derive_changes(snaps):
     ev = []
     for i, s in enumerate(snaps):
         d, models = s["date"], s.get("models") or {}
-        cur = {m for m in models if not is_alias(m)}
+        cur = {m for m in models if is_reportable(m)}
 
         for mid in sorted(seen | cur):
             key = (mid, "present")
