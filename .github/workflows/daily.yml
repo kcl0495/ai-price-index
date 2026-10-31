@@ -112,7 +112,11 @@ jobs:
           reachable "$sm" || { echo "::error::sitemap '$sm' is not reachable"; exit 1; }
 
           # Spot-check one deep page: its canonical must resolve too.
-          page=$(get "$sm" | grep -o '<loc>[^<]*models/[^<]*</loc>' | head -1 | sed 's/<[^>]*>//g')
+          # Deliberately no "| head -1": head closes the pipe on the first line
+          # and grep dies of SIGPIPE, which pipefail turns into a failed build.
+          # Whether that happens depends on the sitemap fitting in the pipe
+          # buffer, so it passes locally and fails in CI. sed reads to the end.
+          page=$(get "$sm" | grep -o '<loc>[^<]*models/[^<]*</loc>' | sed -n '1{s/<[^>]*>//g;p}')
           if [ -n "$page" ]; then
             pc=$(canonical_of "$page")
             echo "model page canonical: $pc"
