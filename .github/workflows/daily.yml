@@ -78,25 +78,45 @@ jobs:
           BASE="${BASE%/}"
           echo "deployed at: $BASE/"
 
-          canon=$(curl -fsS "$BASE/" \
-            | grep -o '<link rel="canonical" href="[^"]*"' \
-            | sed 's/.*href="//; s/"$//')
+          # Pages sits behind a CDN with a 10-minute TTL, so a just-deployed
+          # file can still be served stale for a few seconds. Give each fetch a
+          # few tries before believing what it says.
+          get() {
+            for i in 1 2 3 4 5; do
+              if out=$(curl -fsS --max-time 20 "$1"); then printf '%s' "$out"; return 0; fi
+              sleep 5
+            done
+            return 1
+          }
+          canonical_of() {
+            get "$1" | grep -o '<link rel="canonical" href="[^"]*"' | sed 's/.*href="//; s/"$//'
+          }
+          reachable() { for i in 1 2 3; do curl -fsS -o /dev/null --max-time 20 "$1" && return 0; sleep 5; done; return 1; }
+
+          canon=$(canonical_of "$BASE/")
           echo "homepage canonical: $canon"
           if [ "$canon" != "$BASE/" ]; then
             echo "::error::canonical '$canon' does not match deployed URL '$BASE/'"
             exit 1
           fi
 
-          sm=$(curl -fsS "$BASE/robots.txt" | awk -F': *' '/^[Ss]itemap:/{print $2}')
+          # Strip only the leading "Sitemap:" key. Splitting on every colon
+          # truncates the value at "https:" -- which is exactly how this check
+          # first failed against a site that was perfectly fine.
+          sm=$(get "$BASE/robots.txt" | sed -n 's/^[Ss]itemap:[[:space:]]*//p' | tr -d '\r')
           echo "robots.txt sitemap: $sm"
-          curl -fsS -o /dev/null "$sm" || { echo "::error::sitemap URL from robots.txt is not reachable"; exit 1; }
+          case "$sm" in
+            "$BASE"/*) ;;
+            *) echo "::error::robots.txt sitemap '$sm' is not under '$BASE/'"; exit 1 ;;
+          esac
+          reachable "$sm" || { echo "::error::sitemap '$sm' is not reachable"; exit 1; }
 
           # Spot-check one deep page: its canonical must resolve too.
-          page=$(curl -fsS "$sm" | grep -o '<loc>[^<]*models/[^<]*</loc>' | head -1 | sed 's/<[^>]*>//g')
+          page=$(get "$sm" | grep -o '<loc>[^<]*models/[^<]*</loc>' | head -1 | sed 's/<[^>]*>//g')
           if [ -n "$page" ]; then
-            pc=$(curl -fsS "$page" | grep -o '<link rel="canonical" href="[^"]*"' | sed 's/.*href="//; s/"$//')
+            pc=$(canonical_of "$page")
             echo "model page canonical: $pc"
-            curl -fsS -o /dev/null "$pc" || { echo "::error::model page canonical '$pc' is a dead URL"; exit 1; }
+            reachable "$pc" || { echo "::error::model page canonical '$pc' is a dead URL"; exit 1; }
           fi
 
           echo "all deployed URLs are self-consistent"
