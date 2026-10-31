@@ -65,3 +65,38 @@ jobs:
     steps:
       - id: deploy
         uses: actions/deploy-pages@v5
+
+      # The build cannot know where it will be served from, so a canonical tag
+      # that points at the wrong host or path looks perfectly consistent during
+      # the build and is invisible until a search engine quietly refuses to
+      # index the site. Checking against the deployed URL is the only way to
+      # catch it, so it is checked here, every single day.
+      - name: Verify the deployed site points at itself
+        run: |
+          set -euo pipefail
+          BASE="${{ steps.deploy.outputs.page_url }}"
+          BASE="${BASE%/}"
+          echo "deployed at: $BASE/"
+
+          canon=$(curl -fsS "$BASE/" \
+            | grep -o '<link rel="canonical" href="[^"]*"' \
+            | sed 's/.*href="//; s/"$//')
+          echo "homepage canonical: $canon"
+          if [ "$canon" != "$BASE/" ]; then
+            echo "::error::canonical '$canon' does not match deployed URL '$BASE/'"
+            exit 1
+          fi
+
+          sm=$(curl -fsS "$BASE/robots.txt" | awk -F': *' '/^[Ss]itemap:/{print $2}')
+          echo "robots.txt sitemap: $sm"
+          curl -fsS -o /dev/null "$sm" || { echo "::error::sitemap URL from robots.txt is not reachable"; exit 1; }
+
+          # Spot-check one deep page: its canonical must resolve too.
+          page=$(curl -fsS "$sm" | grep -o '<loc>[^<]*models/[^<]*</loc>' | head -1 | sed 's/<[^>]*>//g')
+          if [ -n "$page" ]; then
+            pc=$(curl -fsS "$page" | grep -o '<link rel="canonical" href="[^"]*"' | sed 's/.*href="//; s/"$//')
+            echo "model page canonical: $pc"
+            curl -fsS -o /dev/null "$pc" || { echo "::error::model page canonical '$pc' is a dead URL"; exit 1; }
+          fi
+
+          echo "all deployed URLs are self-consistent"

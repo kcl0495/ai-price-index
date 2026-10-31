@@ -641,6 +641,12 @@ def main():
     BASE = (cfg.get("base_path") or "").rstrip("/")
     if BASE and not BASE.startswith("/"):
         BASE = "/" + BASE
+    # Every absolute URL we emit -- canonical tags, og:url, robots.txt, the
+    # sitemap, the "source" field in the published JSON -- must carry the base
+    # path. Folding it in here once is the only way to be sure: a canonical
+    # that drops it points at a 404 and tells Google the real page lives
+    # somewhere that does not exist.
+    site_url = site_url + BASE
 
     snaps = load_snapshots()
     if not snaps:
@@ -703,11 +709,47 @@ def main():
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
-        sm.append("<url><loc>%s%s%s</loc><lastmod>%s</lastmod></url>" % (site_url, BASE, u, today))
+        sm.append("<url><loc>%s%s</loc><lastmod>%s</lastmod></url>" % (site_url, u, today))
     sm.append("</urlset>")
     (SITE / "sitemap.xml").write_text("\n".join(sm), encoding="utf-8")
     (SITE / "robots.txt").write_text(
         "User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n" % site_url, encoding="utf-8")
+
+    # --- self-check -------------------------------------------------------
+    # A canonical tag or sitemap entry that points at a URL we do not actually
+    # publish is invisible in testing and tells search engines the real page
+    # lives somewhere that 404s. This went unnoticed for six weeks once, so
+    # the build now refuses to finish if any emitted absolute URL does not map
+    # to a file on disk.
+    def to_path(abs_url):
+        if not abs_url.startswith(site_url):
+            return None
+        rel = abs_url[len(site_url):].lstrip("/")
+        return SITE / (rel + "index.html" if rel in ("", ) or rel.endswith("/") else rel)
+
+    problems = []
+    for f in SITE.rglob("*.html"):
+        for m in re.finditer(r'<link rel="canonical" href="([^"]+)"', f.read_text(encoding="utf-8")):
+            t = to_path(m.group(1))
+            if t is None:
+                problems.append("canonical outside site_url in %s: %s" % (f.name, m.group(1)))
+            elif not t.exists():
+                problems.append("canonical 404 in %s -> %s" % (f.name, m.group(1)))
+    for m in re.finditer(r"<loc>([^<]+)</loc>", (SITE / "sitemap.xml").read_text(encoding="utf-8")):
+        t = to_path(m.group(1))
+        if t is None or not t.exists():
+            problems.append("sitemap entry has no file: %s" % m.group(1))
+    sm_line = [l for l in (SITE / "robots.txt").read_text(encoding="utf-8").splitlines()
+               if l.lower().startswith("sitemap:")]
+    if not sm_line or not (SITE / "sitemap.xml").exists() or sm_line[0].split(":", 1)[1].strip() != site_url + "/sitemap.xml":
+        problems.append("robots.txt sitemap line wrong: %s" % (sm_line or ["missing"])[0])
+
+    if problems:
+        print("[FAIL] %d URL problems:" % len(problems), file=sys.stderr)
+        for x in problems[:20]:
+            print("   " + x, file=sys.stderr)
+        return 1
+    print("[check] %d canonical + sitemap URLs all resolve" % (len(urls) + 1))
 
     print("[site] %d pages (%d model pages: core, changed, or %d+ days history)" % (len(urls), made, HISTORY_GATE))
     print("[site] exports: latest.json, changes.json, prices.csv")
