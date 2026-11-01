@@ -178,3 +178,4 @@
 {"date": "2026-10-30", "type": "model_removed", "model": "upstage/solar-pro-3", "name": "Upstage: Solar Pro 3"}
 {"date": "2026-10-30", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
 {"date": "2026-10-30", "type": "pricing_page_changed", "vendor": "mistral", "url": "https://mistral.ai/pricing"}
+{"date": "2026-10-31", "type": "pricing_page_changed", "vendor": "google", "url": "https://ai.google.dev/pricing"}
