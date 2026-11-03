@@ -183,3 +183,6 @@
 {"date": "2026-11-01", "type": "model_removed", "model": "poolside/laguna-s-2.1", "name": "Poolside: Laguna S 2.1"}
 {"date": "2026-11-01", "type": "model_removed", "model": "poolside/laguna-xs-2.1", "name": "Poolside: Laguna XS 2.1"}
 {"date": "2026-11-01", "type": "pricing_page_changed", "vendor": "xai", "url": "https://docs.x.ai/docs/models"}
+{"date": "2026-11-02", "type": "model_added", "model": "z-ai/glm-5.3-flashx-legal", "name": "Z.ai: GLM 5.3 FlashX Legal", "in": 0.37, "out": 1.25}
+{"date": "2026-11-02", "type": "model_removed", "model": "nousresearch/hermes-3-llama-3.1-405b", "name": "Nous: Hermes 3 405B Instruct"}
+{"date": "2026-11-02", "type": "model_removed", "model": "nousresearch/hermes-3-llama-3.1-70b", "name": "Nous: Hermes 3 70B Instruct"}
