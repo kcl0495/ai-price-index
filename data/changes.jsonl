@@ -186,3 +186,9 @@
 {"date": "2026-11-02", "type": "model_added", "model": "z-ai/glm-5.3-flashx-legal", "name": "Z.ai: GLM 5.3 FlashX Legal", "in": 0.37, "out": 1.25}
 {"date": "2026-11-02", "type": "model_removed", "model": "nousresearch/hermes-3-llama-3.1-405b", "name": "Nous: Hermes 3 405B Instruct"}
 {"date": "2026-11-02", "type": "model_removed", "model": "nousresearch/hermes-3-llama-3.1-70b", "name": "Nous: Hermes 3 70B Instruct"}
+{"date": "2026-11-04", "type": "deprecation_announced", "model": "inception/mercury-2", "name": "Inception: Mercury 2", "expires": "2026-11-08"}
+{"date": "2026-11-04", "type": "deprecation_announced", "model": "inception/mercury-2.5", "name": "Inception: Mercury 2.5", "expires": "2026-11-08"}
+{"date": "2026-11-04", "type": "deprecation_announced", "model": "inception/mercury-3", "name": "Inception: Mercury 3", "expires": "2026-11-08"}
+{"date": "2026-11-04", "type": "model_added", "model": "stealth/crouton-alpha", "name": "Crouton Alpha", "in": 0.0, "out": 0.0}
+{"date": "2026-11-04", "type": "model_added", "model": "tencent/hy4", "name": "Tencent: Hy4", "in": 0.417, "out": 1.2505}
+{"date": "2026-11-04", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
