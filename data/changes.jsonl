@@ -192,3 +192,11 @@
 {"date": "2026-11-04", "type": "model_added", "model": "stealth/crouton-alpha", "name": "Crouton Alpha", "in": 0.0, "out": 0.0}
 {"date": "2026-11-04", "type": "model_added", "model": "tencent/hy4", "name": "Tencent: Hy4", "in": 0.417, "out": 1.2505}
 {"date": "2026-11-04", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
+{"date": "2026-11-05", "type": "deprecation_announced", "model": "openai/gpt-5-image-mini", "name": "OpenAI: GPT-5 Image Mini", "expires": "2026-12-01"}
+{"date": "2026-11-05", "type": "model_added", "model": "inclusionai/ling-3.0-tiny", "name": "inclusionAI: Ling 3.0 Tiny", "in": 0.015, "out": 0.045}
+{"date": "2026-11-05", "type": "model_added", "model": "openrouter/auto-code", "name": "Auto Code", "in": null, "out": null}
+{"date": "2026-11-05", "type": "model_removed", "model": "minimax/minimax-01", "name": "MiniMax: MiniMax-01"}
+{"date": "2026-11-05", "type": "model_removed", "model": "minimax/minimax-m2", "name": "MiniMax: MiniMax M2"}
+{"date": "2026-11-05", "type": "model_removed", "model": "minimax/minimax-m2-her", "name": "MiniMax: MiniMax M2-her"}
+{"date": "2026-11-05", "type": "model_removed", "model": "minimax/minimax-m2.1", "name": "MiniMax: MiniMax M2.1"}
+{"date": "2026-11-05", "type": "pricing_page_changed", "vendor": "mistral", "url": "https://mistral.ai/pricing"}
