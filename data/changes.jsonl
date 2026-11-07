@@ -200,3 +200,6 @@
 {"date": "2026-11-05", "type": "model_removed", "model": "minimax/minimax-m2-her", "name": "MiniMax: MiniMax M2-her"}
 {"date": "2026-11-05", "type": "model_removed", "model": "minimax/minimax-m2.1", "name": "MiniMax: MiniMax M2.1"}
 {"date": "2026-11-05", "type": "pricing_page_changed", "vendor": "mistral", "url": "https://mistral.ai/pricing"}
+{"date": "2026-11-06", "type": "model_added", "model": "google/gemini-omni-1.1-flash", "name": "Google: Gemini Omni 1.1 Flash", "in": 1.5, "out": 9.0}
+{"date": "2026-11-06", "type": "model_added", "model": "google/gemini-omni-1.2-flash", "name": "Google: Gemini Omni 1.2 Flash", "in": 1.5, "out": 9.0}
+{"date": "2026-11-06", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
