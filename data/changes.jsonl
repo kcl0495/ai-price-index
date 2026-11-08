@@ -203,3 +203,6 @@
 {"date": "2026-11-06", "type": "model_added", "model": "google/gemini-omni-1.1-flash", "name": "Google: Gemini Omni 1.1 Flash", "in": 1.5, "out": 9.0}
 {"date": "2026-11-06", "type": "model_added", "model": "google/gemini-omni-1.2-flash", "name": "Google: Gemini Omni 1.2 Flash", "in": 1.5, "out": 9.0}
 {"date": "2026-11-06", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
+{"date": "2026-11-07", "type": "deprecation_announced", "model": "liquid/lfm-2.5-2.6b", "name": "LiquidAI: LFM2.5-2.6B", "expires": "2026-11-13"}
+{"date": "2026-11-07", "type": "deprecation_announced", "model": "meta-llama/llama-3.2-1b-instruct", "name": "Meta: Llama 3.2 1B Instruct", "expires": "2026-11-20"}
+{"date": "2026-11-07", "type": "model_added", "model": "liquid/lfm-3-1.7b", "name": "LiquidAI: LFM3-1.7B", "in": 0.08, "out": 0.2}
