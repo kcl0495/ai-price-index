@@ -206,3 +206,7 @@
 {"date": "2026-11-07", "type": "deprecation_announced", "model": "liquid/lfm-2.5-2.6b", "name": "LiquidAI: LFM2.5-2.6B", "expires": "2026-11-13"}
 {"date": "2026-11-07", "type": "deprecation_announced", "model": "meta-llama/llama-3.2-1b-instruct", "name": "Meta: Llama 3.2 1B Instruct", "expires": "2026-11-20"}
 {"date": "2026-11-07", "type": "model_added", "model": "liquid/lfm-3-1.7b", "name": "LiquidAI: LFM3-1.7B", "in": 0.08, "out": 0.2}
+{"date": "2026-11-08", "type": "deprecation_announced", "model": "moonshotai/kimi-k2.5", "name": "MoonshotAI: Kimi K2.5", "expires": "2026-11-18"}
+{"date": "2026-11-08", "type": "model_removed", "model": "inception/mercury-2", "name": "Inception: Mercury 2"}
+{"date": "2026-11-08", "type": "model_removed", "model": "inception/mercury-2.5", "name": "Inception: Mercury 2.5"}
+{"date": "2026-11-08", "type": "model_removed", "model": "inception/mercury-3", "name": "Inception: Mercury 3"}
