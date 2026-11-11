@@ -211,3 +211,8 @@
 {"date": "2026-11-08", "type": "model_removed", "model": "inception/mercury-2.5", "name": "Inception: Mercury 2.5"}
 {"date": "2026-11-08", "type": "model_removed", "model": "inception/mercury-3", "name": "Inception: Mercury 3"}
 {"date": "2026-11-09", "type": "model_removed", "model": "minimax/minimax-m1", "name": "MiniMax: MiniMax M1"}
+{"date": "2026-11-10", "type": "model_added", "model": "anthropic/claude-fable-5.2", "name": "Anthropic: Claude Fable 5.2", "in": 8.0, "out": 40.0}
+{"date": "2026-11-10", "type": "model_added", "model": "meta/muse-ember", "name": "Meta: Muse Ember", "in": 0.1, "out": 0.5}
+{"date": "2026-11-10", "type": "model_added", "model": "nex-agi/nex-n2.6", "name": "Nex AGI: Nex-N2.6", "in": 0.12, "out": 0.4}
+{"date": "2026-11-10", "type": "model_removed", "model": "stealth/crouton-alpha", "name": "Crouton Alpha"}
+{"date": "2026-11-10", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
