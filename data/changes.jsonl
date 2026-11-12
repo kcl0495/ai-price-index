@@ -216,3 +216,18 @@
 {"date": "2026-11-10", "type": "model_added", "model": "nex-agi/nex-n2.6", "name": "Nex AGI: Nex-N2.6", "in": 0.12, "out": 0.4}
 {"date": "2026-11-10", "type": "model_removed", "model": "stealth/crouton-alpha", "name": "Crouton Alpha"}
 {"date": "2026-11-10", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
+{"date": "2026-11-11", "type": "deprecation_announced", "model": "openai/gpt-5", "name": "OpenAI: GPT-5", "expires": "2026-12-11"}
+{"date": "2026-11-11", "type": "deprecation_announced", "model": "openai/gpt-5-image", "name": "OpenAI: GPT-5 Image", "expires": "2026-12-11"}
+{"date": "2026-11-11", "type": "deprecation_announced", "model": "openai/gpt-5-mini", "name": "OpenAI: GPT-5 Mini", "expires": "2026-12-11"}
+{"date": "2026-11-11", "type": "deprecation_announced", "model": "openai/gpt-5-nano", "name": "OpenAI: GPT-5 Nano", "expires": "2026-12-11"}
+{"date": "2026-11-11", "type": "deprecation_announced", "model": "openai/gpt-5-pro", "name": "OpenAI: GPT-5 Pro", "expires": "2026-12-11"}
+{"date": "2026-11-11", "type": "deprecation_announced", "model": "openai/o3", "name": "OpenAI: o3", "expires": "2026-12-11"}
+{"date": "2026-11-11", "type": "deprecation_announced", "model": "openai/o3-pro", "name": "OpenAI: o3 Pro", "expires": "2026-12-11"}
+{"date": "2026-11-11", "type": "model_added", "model": "baidu/ernie-light-dt-1.0-intl", "name": "Baidu: ERNIE-Light-DT-1.0", "in": 1.13, "out": 3.94}
+{"date": "2026-11-11", "type": "model_added", "model": "google/gemini-4-carbon", "name": "Google: Gemini 4 Carbon", "in": 2.0, "out": 10.0}
+{"date": "2026-11-11", "type": "model_added", "model": "kt/midm-k-3.0-pro", "name": "KT: Mi:dm K 3.0 Pro", "in": 0.2, "out": 0.8}
+{"date": "2026-11-11", "type": "model_added", "model": "motif-technologies/motif-3", "name": "Motif Technologies: Motif 3", "in": 0.3, "out": 1.2}
+{"date": "2026-11-11", "type": "model_removed", "model": "bytedance-seed/seed-1.6", "name": "ByteDance Seed: Seed 1.6"}
+{"date": "2026-11-11", "type": "model_removed", "model": "bytedance-seed/seed-1.6-flash", "name": "ByteDance Seed: Seed 1.6 Flash"}
+{"date": "2026-11-11", "type": "model_removed", "model": "bytedance-seed/seed-2.0-code", "name": "ByteDance Seed: Seed-2.0-Code"}
+{"date": "2026-11-11", "type": "model_removed", "model": "qwen/qwen-2.5-7b-instruct", "name": "Qwen: Qwen2.5 7B Instruct"}
