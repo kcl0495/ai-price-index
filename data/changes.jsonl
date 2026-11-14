@@ -234,3 +234,10 @@
 {"date": "2026-11-12", "type": "price_changed", "model": "openai/gpt-5.6-sol", "name": "OpenAI: GPT-5.6 Sol", "field": "in", "from": 4.0, "to": 4.4, "pct": 10.0}
 {"date": "2026-11-12", "type": "price_changed", "model": "openai/gpt-5.6-sol", "name": "OpenAI: GPT-5.6 Sol", "field": "out", "from": 20.0, "to": 22.0, "pct": 10.0}
 {"date": "2026-11-12", "type": "pricing_page_changed", "vendor": "mistral", "url": "https://mistral.ai/pricing"}
+{"date": "2026-11-13", "type": "deprecation_announced", "model": "qwen/qwen3-vl-30b-a3b-thinking", "name": "Qwen: Qwen3 VL 30B A3B Thinking", "expires": "2026-11-15"}
+{"date": "2026-11-13", "type": "deprecation_announced", "model": "stepfun/step-3.5-flash", "name": "StepFun: Step 3.5 Flash", "expires": "2026-11-15"}
+{"date": "2026-11-13", "type": "deprecation_announced", "model": "tencent/hunyuan-a13b-instruct", "name": "Tencent: Hunyuan A13B Instruct", "expires": "2026-11-15"}
+{"date": "2026-11-13", "type": "model_added", "model": "google/gemini-4-hydrogen", "name": "Google: Gemini 4 Hydrogen", "in": 1.5, "out": 7.5}
+{"date": "2026-11-13", "type": "model_added", "model": "thinkingmachines/inkling-2-small", "name": "Thinking Machines: Inkling 2 Small", "in": 0.3, "out": 1.0}
+{"date": "2026-11-13", "type": "model_removed", "model": "liquid/lfm-2.5-2.6b", "name": "LiquidAI: LFM2.5-2.6B"}
+{"date": "2026-11-13", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
