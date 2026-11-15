@@ -241,3 +241,5 @@
 {"date": "2026-11-13", "type": "model_added", "model": "thinkingmachines/inkling-2-small", "name": "Thinking Machines: Inkling 2 Small", "in": 0.3, "out": 1.0}
 {"date": "2026-11-13", "type": "model_removed", "model": "liquid/lfm-2.5-2.6b", "name": "LiquidAI: LFM2.5-2.6B"}
 {"date": "2026-11-13", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
+{"date": "2026-11-14", "type": "deprecation_announced", "model": "meta-llama/llama-3.2-3b-instruct", "name": "Meta: Llama 3.2 3B Instruct", "expires": "2026-11-20"}
+{"date": "2026-11-14", "type": "pricing_page_changed", "vendor": "xai", "url": "https://docs.x.ai/docs/models"}
