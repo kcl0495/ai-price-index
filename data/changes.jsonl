@@ -243,3 +243,7 @@
 {"date": "2026-11-13", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
 {"date": "2026-11-14", "type": "deprecation_announced", "model": "meta-llama/llama-3.2-3b-instruct", "name": "Meta: Llama 3.2 3B Instruct", "expires": "2026-11-20"}
 {"date": "2026-11-14", "type": "pricing_page_changed", "vendor": "xai", "url": "https://docs.x.ai/docs/models"}
+{"date": "2026-11-15", "type": "deprecation_announced", "model": "z-ai/glm-5.1", "name": "Z.ai: GLM 5.1", "expires": "2026-11-20"}
+{"date": "2026-11-15", "type": "model_removed", "model": "qwen/qwen3-vl-30b-a3b-thinking", "name": "Qwen: Qwen3 VL 30B A3B Thinking"}
+{"date": "2026-11-15", "type": "model_removed", "model": "stepfun/step-3.5-flash", "name": "StepFun: Step 3.5 Flash"}
+{"date": "2026-11-15", "type": "model_removed", "model": "tencent/hunyuan-a13b-instruct", "name": "Tencent: Hunyuan A13B Instruct"}
