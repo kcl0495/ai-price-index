@@ -247,3 +247,7 @@
 {"date": "2026-11-15", "type": "model_removed", "model": "qwen/qwen3-vl-30b-a3b-thinking", "name": "Qwen: Qwen3 VL 30B A3B Thinking"}
 {"date": "2026-11-15", "type": "model_removed", "model": "stepfun/step-3.5-flash", "name": "StepFun: Step 3.5 Flash"}
 {"date": "2026-11-15", "type": "model_removed", "model": "tencent/hunyuan-a13b-instruct", "name": "Tencent: Hunyuan A13B Instruct"}
+{"date": "2026-11-16", "type": "model_added", "model": "qwen/qwen4-max", "name": "Qwen: Qwen4 Max", "in": 1.5, "out": 4.5}
+{"date": "2026-11-16", "type": "model_added", "model": "tencent/hy4-flash", "name": "Tencent: Hy4 flash", "in": 0.035, "out": 0.1405}
+{"date": "2026-11-16", "type": "price_changed", "model": "openai/gpt-5.6-sol", "name": "OpenAI: GPT-5.6 Sol", "field": "in", "from": 4.4, "to": 4.0, "pct": -9.09}
+{"date": "2026-11-16", "type": "price_changed", "model": "openai/gpt-5.6-sol", "name": "OpenAI: GPT-5.6 Sol", "field": "out", "from": 22.0, "to": 20.0, "pct": -9.09}
