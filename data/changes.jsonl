@@ -258,3 +258,7 @@
 {"date": "2026-11-18", "type": "model_added", "model": "openai/gpt-6.2-sol", "name": "OpenAI: GPT-6.2 Sol", "in": 2.0, "out": 10.0}
 {"date": "2026-11-18", "type": "model_added", "model": "openai/gpt-6.2-sol-pro", "name": "OpenAI: GPT-6.2 Sol Pro", "in": 2.0, "out": 10.0}
 {"date": "2026-11-19", "type": "model_added", "model": "google/gemini-4-neon", "name": "Google: Gemini 4 Neon", "in": 3.0, "out": 15.0}
+{"date": "2026-11-20", "type": "model_removed", "model": "meta-llama/llama-3.2-1b-instruct", "name": "Meta: Llama 3.2 1B Instruct"}
+{"date": "2026-11-20", "type": "model_removed", "model": "x-ai/grok-build-0.1", "name": "SpaceXAI: Grok Build 0.1"}
+{"date": "2026-11-20", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
+{"date": "2026-11-20", "type": "pricing_page_changed", "vendor": "mistral", "url": "https://mistral.ai/pricing"}
