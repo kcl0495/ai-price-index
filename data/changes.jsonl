@@ -262,3 +262,7 @@
 {"date": "2026-11-20", "type": "model_removed", "model": "x-ai/grok-build-0.1", "name": "SpaceXAI: Grok Build 0.1"}
 {"date": "2026-11-20", "type": "pricing_page_changed", "vendor": "deepseek", "url": "https://api-docs.deepseek.com/quick_start/pricing"}
 {"date": "2026-11-20", "type": "pricing_page_changed", "vendor": "mistral", "url": "https://mistral.ai/pricing"}
+{"date": "2026-11-21", "type": "model_added", "model": "radixark/daisyrose-27b", "name": "RadixArk: DaisyRose 27B", "in": 0.15, "out": 1.875}
+{"date": "2026-11-21", "type": "model_added", "model": "thinkingmachines/inkling-2-mini", "name": "Thinking Machines: Inkling 2 Mini", "in": 0.1, "out": 0.4}
+{"date": "2026-11-21", "type": "model_removed", "model": "meituan/longcat-2.0", "name": "Meituan: LongCat 2.0"}
+{"date": "2026-11-21", "type": "pricing_page_changed", "vendor": "xai", "url": "https://docs.x.ai/docs/models"}
