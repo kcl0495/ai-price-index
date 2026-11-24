@@ -266,3 +266,5 @@
 {"date": "2026-11-21", "type": "model_added", "model": "thinkingmachines/inkling-2-mini", "name": "Thinking Machines: Inkling 2 Mini", "in": 0.1, "out": 0.4}
 {"date": "2026-11-21", "type": "model_removed", "model": "meituan/longcat-2.0", "name": "Meituan: LongCat 2.0"}
 {"date": "2026-11-21", "type": "pricing_page_changed", "vendor": "xai", "url": "https://docs.x.ai/docs/models"}
+{"date": "2026-11-23", "type": "deprecation_announced", "model": "nvidia/nemotron-3.5-content-safety", "name": "NVIDIA: Nemotron 3.5 Content Safety", "expires": "2026-11-30"}
+{"date": "2026-11-23", "type": "pricing_page_changed", "vendor": "mistral", "url": "https://mistral.ai/pricing"}
