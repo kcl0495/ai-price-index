@@ -280,3 +280,8 @@
 {"date": "2026-11-25", "type": "model_added", "model": "upstage/solar-pro-4-contributor", "name": "Upstage: Solar Pro 4 Contributor", "in": 0.09, "out": 0.36}
 {"date": "2026-11-25", "type": "model_added", "model": "xiaomi/mimo-v2.6-flash-mopd", "name": "Xiaomi: MiMo-V2.6-Flash-MOPD", "in": 0.5, "out": 1.0}
 {"date": "2026-11-25", "type": "model_removed", "model": "xiaomi/mimo-v2.5", "name": "Xiaomi: MiMo-V2.5"}
+{"date": "2026-11-26", "type": "model_added", "model": "inclusionai/lingsante-3.1-air-vl", "name": "inclusionAI: LingSante 3.1 Air VL", "in": 0.06, "out": 0.18}
+{"date": "2026-11-26", "type": "model_added", "model": "moonshotai/kimi-k2", "name": "MoonshotAI: Kimi K2 0711", "in": 0.57, "out": 2.3}
+{"date": "2026-11-26", "type": "model_added", "model": "tngtech/deepseek-r1t2-chimera", "name": "TNG: DeepSeek R1T2 Chimera", "in": 1.0, "out": 2.625}
+{"date": "2026-11-26", "type": "model_removed", "model": "unbiased/pareto-26.10", "name": "Pareto 26.10"}
+{"date": "2026-11-26", "type": "model_removed", "model": "unbiased/pareto-26.9", "name": "Pareto 26.9"}
